@@ -1,0 +1,56 @@
+/*.no-left-b,
+.no-left-b > * {
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.no-right-b,
+.no-right-b > * {
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+}*/
+
+@define-color drag_color color-mix(in srgb, currentColor 15%, transparent);
+
+.drag-me {
+  background-color: @drag_color;
+  border-radius: 3px;
+  font-size: 0px;
+  padding: 0;
+  margin: 0;
+  max-width: 6px;
+  min-width: 6px;
+  min-height: 6px;
+  max-height: 6px;
+}
+
+.equals {
+  font-size: 25px;
+  font-weight: 400;
+  padding-bottom: 3px;
+}
+
+.yellow-ruler {
+  background-color: #ffce00;
+  transition: background-color 550ms ease;
+  /* border-bottom: 6px dashed rgba(0,0,0,0.5); */
+  /* border: 0px;
+  outline: 1px solid rgba(0,0,0,0.025);
+  outline-offset: -1px; */
+}
+
+.smooth-transition {
+  transition: background-color 450ms ease;
+  /* Test chalk color scheme:
+  background-color: #215a39;
+  color: white;
+  */
+}
+
+.framed-button {
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+.framed-button:hover {
+  box-shadow: inset 0 0 0px rgba(0,0,0,0.1);
+}

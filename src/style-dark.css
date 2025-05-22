@@ -1,0 +1,21 @@
+.yellow-ruler {
+  background-color: #886b00;
+  transition: background-color 550ms ease;
+  outline: 1px solid @borders;          /* draws a visible border */
+  outline-offset: -1px;
+}
+
+.framed-button {
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+}
+
+.framed-button:hover {
+  box-shadow: inset 0 0 0px rgba(255,255,255,0.1);
+}
+
+.smooth-transition {
+  transition: background-color 450ms ease;
+  /* Test chalk color scheme:
+  background-color: #214430;
+  */
+}

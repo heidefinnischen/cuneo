@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Cuneo
+Exec=cuneo
+Icon=com.github.heidefinnischen.cuneo
+Terminal=false
+Type=Application
+Categories=Utility;
+Keywords=GTK;
+StartupNotify=true
+DBusActivatable=true

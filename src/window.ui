@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="CuneoWindow" parent="AdwApplicationWindow">
+    <property name="title" translatable="yes"></property>
+    <property name="default-width">500</property>
+    <property name="default-height">30</property>
+    <property name="content">
+      <object class="AdwToolbarView">
+        <child type="top">
+          <object class="AdwHeaderBar">
+            <child type="start">
+              <object class="AdwToggleGroup" id="mode_toggle">
+                <property name="margin-end">0</property>
+                <property name="height-request">40</property>
+                <property name="orientation">horizontal</property>
+                <style>
+                 <class name="round"/>
+                  <class name="toggle-buttonx"/>
+                </style>
+                <property name="active-name">calculate</property>
+                <child>
+                 <object class="AdwToggle">
+                   <property name="icon-name">accessories-calculator-symbolic</property>
+                   <property name="tooltip" translatable="yes">Calculate</property>
+                   <property name="name">calculate</property>
+                 </object>
+                </child>
+                <child>
+                 <object class="AdwToggle">
+                   <property name="icon-name">network-transmit-receive-symbolic</property>
+                   <property name="tooltip" translatable="yes">Convert</property>
+                   <property name="name">convert</property>
+                 </object>
+                </child>
+                <signal name="notify::active" handler="on_toggle_changed" swapped="no"/>
+              </object>
+            </child>
+
+
+
+<!-- Stack Start -->
+            <child type="title">
+              <object class="GtkStack" id="mode_stack">
+                <property name="transition-type">slide-left-right</property>
+                <property name="transition-duration">450</property>
+<!-- Calculate Start -->
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">calculate</property>
+                    <property name="child">
+                      <object class="GtkBox" id="calculate_box">
+                        <property name="margin-bottom">0</property>
+                        <property name="margin-start">10</property>
+                        <property name="margin-end">6</property>
+                        <property name="orientation">horizontal</property>
+                        <property name="spacing">12</property>
+                        <child>
+                          <object class="GtkEntry" id="calc_entry">
+                            <property name="placeholder-text">Calculate</property>
+                            <property name="hexpand">true</property>
+                            <signal name="changed" handler="on_entry_changed" swapped="no"/>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label">=</property>
+                            <property name="valign">top</property>
+                            <style>
+                              <class name="equals"/>
+                            </style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkEntry" id="calc_result">
+                            <property name="placeholder-text">Result</property>
+                            <property name="hexpand">true</property>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+<!-- Convert Box -->
+                <child>
+                  <object class="GtkStackPage">
+                    <property name="name">convert</property>
+                    <property name="child">
+                      <object class="GtkBox" id="convert_box">
+                        <property name="orientation">horizontal</property>
+                        <property name="margin-start">10</property>
+                        <property name="margin-end">6</property>
+                        <!-- <property name="margin-top">10</property>
+                        <property name="margin-bottom">10</property> -->
+                        <property name="spacing">0</property>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="orientation">horizontal</property>
+                            <property name="spacing">0</property>
+                            <child>
+                              <object class="GtkDropDown" id="type_dropdown">
+                                <property name="margin-end">12</property>
+                                <property name="selected">0</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="orientation">horizontal</property>
+                            <property name="hexpand">true</property>
+                            <property name="spacing">0</property>
+                            <style>
+                              <class name="linked"/>
+                            </style>
+                            <child>
+                              <object class="GtkEntry" id="from_unit_entry">
+                                <property name="placeholder-text">Convert</property>
+                                <property name="hexpand">true</property>
+                                <property name="width-request">80</property>
+                                <property name="halign">fill</property>
+                                <!-- <signal name="changed" handler="on_entry_changed" swapped="no"/> -->
+                                <signal name="changed" handler="on_convert_entry_changed" swapped="no"/>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkDropDown" id="from_unit">
+                                <signal name="notify::selected" handler="on_from_unit_changed" swapped="no"/>
+                                <property name="halign">fill</property>
+                                <property name="margin-end">6</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkButton">
+                            <property name="margin-end">6</property>
+                            <property name="icon-name">object-flip-horizontal-symbolic</property>
+                            <signal name="clicked" handler="on_invert_units_clicked" swapped="no"/>
+                            <style>
+                              <class name="flat"/>
+                              <class name="framed-button"/>
+                            </style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox">
+                            <property name="hexpand">true</property>
+                            <style>
+                              <class name="linked"/>
+                            </style>
+                            <child>
+                              <object class="GtkEntry" id="to_unit_entry">
+                                <property name="placeholder-text">Result</property>
+                                <property name="width-request">80</property>
+                                <property name="hexpand">true</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkDropDown" id="to_unit">
+                                <signal name="notify::selected" handler="on_from_unit_changed" swapped="no"/>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </property>
+                  </object>
+                </child>
+                <property name="visible-child-name">calculate</property>
+              </object>
+            </child>
+<!-- Stack End -->
+            <child type="end">
+              <object class="GtkBox">
+                <child>
+                  <object class="GtkMenuButton">
+                    <property name="primary">True</property>
+                    <property name="icon-name">open-menu-symbolic</property>
+                    <property name="margin-start">0</property>
+                    <property name="tooltip-text" translatable="yes">Main Menu</property>
+                    <property name="menu-model">primary_menu</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox">
+                    <property name="orientation">vertical</property>
+                    <property name="margin-start">8</property>
+                    <property name="margin-end">4</property>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="label"></property>
+                        <property name="margin-top">8</property>
+                        <property name="margin-bottom">4</property>
+                        <style>
+                          <class name="drag-me"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="label"></property>
+                        <property name="margin-bottom">4</property>
+                        <style>
+                          <class name="drag-me"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="label"></property>
+                        <property name="margin-bottom">4</property>
+                        <style>
+                          <class name="drag-me"/>
+                        </style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="label"></property>
+                        <property name="margin-bottom">8</property>
+                        <style>
+                          <class name="drag-me"/>
+                        </style>
+                      </object>
+                    </child>
+                  </object>
+
+
+                </child>
+              </object>
+            </child>
+
+          </object>
+        </child>
+
+      </object>
+    </property>
+  </template>
+  <menu id="primary_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Preferences</attribute>
+        <attribute name="action">app.preferences</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">win.show-help-overlay</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_About Cuneo</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>
+
+
