@@ -12,7 +12,8 @@
 
 @define-color drag_color color-mix(in srgb, currentColor 15%, transparent);
 
-.drag-me {
+
+.drag-me-handle > * {
   background-color: @drag_color;
   border-radius: 3px;
   font-size: 0px;

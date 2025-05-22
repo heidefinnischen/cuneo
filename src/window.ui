@@ -7,45 +7,51 @@
     <property name="default-width">500</property>
     <property name="default-height">30</property>
     <property name="content">
+
+
+<!-- Header Bar and Toolbar Start -->
       <object class="AdwToolbarView">
         <child type="top">
           <object class="AdwHeaderBar">
+
+
+<!-- Toggle Group Start [CHECKED] -->
             <child type="start">
               <object class="AdwToggleGroup" id="mode_toggle">
                 <property name="margin-end">0</property>
                 <property name="height-request">40</property>
                 <property name="orientation">horizontal</property>
-                <style>
-                 <class name="round"/>
-                  <class name="toggle-buttonx"/>
-                </style>
+                <style><class name="round"/><class name="toggle-buttonx"/></style>
                 <property name="active-name">calculate</property>
                 <child>
-                 <object class="AdwToggle">
-                   <property name="icon-name">accessories-calculator-symbolic</property>
-                   <property name="tooltip" translatable="yes">Calculate</property>
-                   <property name="name">calculate</property>
-                 </object>
+                  <object class="AdwToggle">
+                    <property name="icon-name">accessories-calculator-symbolic</property>
+                    <property name="tooltip" translatable="yes">Calculate</property>
+                    <property name="name">calculate</property>
+                  </object>
                 </child>
                 <child>
-                 <object class="AdwToggle">
-                   <property name="icon-name">network-transmit-receive-symbolic</property>
-                   <property name="tooltip" translatable="yes">Convert</property>
-                   <property name="name">convert</property>
-                 </object>
+                  <object class="AdwToggle">
+                    <property name="icon-name">network-transmit-receive-symbolic</property>
+                    <property name="tooltip" translatable="yes">Convert</property>
+                    <property name="name">convert</property>
+                  </object>
                 </child>
                 <signal name="notify::active" handler="on_toggle_changed" swapped="no"/>
               </object>
             </child>
+<!-- Toggle Group End -->
 
 
 
-<!-- Stack Start -->
+<!-- GtkStack (containing: Calculate, Convert) Start -->
             <child type="title">
               <object class="GtkStack" id="mode_stack">
                 <property name="transition-type">slide-left-right</property>
                 <property name="transition-duration">450</property>
-<!-- Calculate Start -->
+
+
+<!-- Calculate Stack Start -->
                 <child>
                   <object class="GtkStackPage">
                     <property name="name">calculate</property>
@@ -54,7 +60,6 @@
                         <property name="margin-bottom">0</property>
                         <property name="margin-start">10</property>
                         <property name="margin-end">6</property>
-                        <property name="orientation">horizontal</property>
                         <property name="spacing">12</property>
                         <child>
                           <object class="GtkEntry" id="calc_entry">
@@ -67,9 +72,7 @@
                           <object class="GtkLabel">
                             <property name="label">=</property>
                             <property name="valign">top</property>
-                            <style>
-                              <class name="equals"/>
-                            </style>
+                            <style><class name="equals"/></style>
                           </object>
                         </child>
                         <child>
@@ -82,7 +85,10 @@
                     </property>
                   </object>
                 </child>
-<!-- Convert Box -->
+<!-- Calculate Stack End -->
+
+
+<!-- Convert Stack Start -->
                 <child>
                   <object class="GtkStackPage">
                     <property name="name">convert</property>
@@ -111,9 +117,7 @@
                             <property name="orientation">horizontal</property>
                             <property name="hexpand">true</property>
                             <property name="spacing">0</property>
-                            <style>
-                              <class name="linked"/>
-                            </style>
+                            <style><class name="linked"/></style>
                             <child>
                               <object class="GtkEntry" id="from_unit_entry">
                                 <property name="placeholder-text">Convert</property>
@@ -138,18 +142,13 @@
                             <property name="margin-end">6</property>
                             <property name="icon-name">object-flip-horizontal-symbolic</property>
                             <signal name="clicked" handler="on_invert_units_clicked" swapped="no"/>
-                            <style>
-                              <class name="flat"/>
-                              <class name="framed-button"/>
-                            </style>
+                            <style><class name="flat"/><class name="framed-button"/></style>
                           </object>
                         </child>
                         <child>
                           <object class="GtkBox">
                             <property name="hexpand">true</property>
-                            <style>
-                              <class name="linked"/>
-                            </style>
+                            <style><class name="linked"/></style>
                             <child>
                               <object class="GtkEntry" id="to_unit_entry">
                                 <property name="placeholder-text">Result</property>
@@ -168,12 +167,18 @@
                     </property>
                   </object>
                 </child>
+<!-- Convert Stack End -->
                 <property name="visible-child-name">calculate</property>
               </object>
             </child>
-<!-- Stack End -->
+<!-- GtkStack (containing: Calculate, Convert) End -->
+
+
+<!-- End Start -->
             <child type="end">
               <object class="GtkBox">
+
+
                 <child>
                   <object class="GtkMenuButton">
                     <property name="primary">True</property>
@@ -183,63 +188,63 @@
                     <property name="menu-model">primary_menu</property>
                   </object>
                 </child>
+
+
+<!-- Drag Me Handle Start -->
                 <child>
                   <object class="GtkBox">
                     <property name="orientation">vertical</property>
+                    <property name="margin-top">8</property>
+                    <property name="margin-bottom">8</property>
                     <property name="margin-start">8</property>
                     <property name="margin-end">4</property>
+                    <property name="spacing">4</property>
+                    <style><class name="drag-me-handle"/></style>
                     <child>
                       <object class="GtkLabel">
                         <property name="label"></property>
-                        <property name="margin-top">8</property>
-                        <property name="margin-bottom">4</property>
-                        <style>
-                          <class name="drag-me"/>
-                        </style>
                       </object>
                     </child>
                     <child>
                       <object class="GtkLabel">
                         <property name="label"></property>
-                        <property name="margin-bottom">4</property>
-                        <style>
-                          <class name="drag-me"/>
-                        </style>
                       </object>
                     </child>
                     <child>
                       <object class="GtkLabel">
                         <property name="label"></property>
-                        <property name="margin-bottom">4</property>
-                        <style>
-                          <class name="drag-me"/>
-                        </style>
                       </object>
                     </child>
                     <child>
                       <object class="GtkLabel">
                         <property name="label"></property>
-                        <property name="margin-bottom">8</property>
-                        <style>
-                          <class name="drag-me"/>
-                        </style>
                       </object>
                     </child>
                   </object>
-
-
                 </child>
+<!-- Drag Me Handle End -->
+
+
               </object>
             </child>
+<!-- End End -->
 
           </object>
         </child>
-
       </object>
+<!-- Header Bar and Toolbar End -->
+
     </property>
   </template>
+
+
+
   <menu id="primary_menu">
     <section>
+      <item>
+        <attribute name="label" translatable="yes">_Scratchpad</attribute>
+        <attribute name="action"></attribute>
+      </item>
       <item>
         <attribute name="label" translatable="yes">_Preferences</attribute>
         <attribute name="action">app.preferences</attribute>

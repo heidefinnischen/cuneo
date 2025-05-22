@@ -45,7 +45,6 @@ class CuneoWindow(Adw.ApplicationWindow):
 
     # General Widgets
     mode_stack = Gtk.Template.Child()
-    mode_toggle = Gtk.Template.Child()
 
 
     def __init__(self, **kwargs):
