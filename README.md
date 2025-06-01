@@ -5,11 +5,11 @@
 
 Cuneo is a simple and straightforward app that lets you calculate and convert anything you might encounter in your daily life. Being designed like a widget, Cuneo gets out of the way and is best used floating over a maximized window so you can focus on your tasks and dont need to have a clunky calculation app covering half your screen..
 
-![Calculate Dark](https://github.com/heidefinnischen/cuneo/blob/bcd8bde2152ded62386c7372f014e802021f0d0d/data/Resources/calculate-sample-dark.png#gh-dark-mode-only)
-![Preview Light](https://github.com/heidefinnischen/cuneo/blob/7ead689d97705c0418144af957912a4a7755ab12/data/Resources/app-light.png#gh-light-mode-only)
+![Calculate Dark](https://github.com/heidefinnischen/cuneo/blob/c164d16aa9d43a4c1deb3f928ceac0400192ecff/data/Resources/calculate-sample-dark.png#gh-dark-mode-only)
+![Calculate Light](https://github.com/heidefinnischen/cuneo/blob/c164d16aa9d43a4c1deb3f928ceac0400192ecff/data/Resources/calculate-sample-light.png#gh-light-mode-only)
 
-![Conversion Dark](https://github.com/heidefinnischen/cuneo/blob/bcd8bde2152ded62386c7372f014e802021f0d0d/data/Resources/convert-sample-dark.png#gh-dark-mode-only)
-![Conversion Light](https://github.com/heidefinnischen/cuneo/blob/22dce48ea8db093f9d9e3fbd1916521dbe9e4dca/data/Resources/convert-sample-light.png#gh-light-mode-only)
+![Conversion Dark](https://github.com/heidefinnischen/cuneo/blob/c164d16aa9d43a4c1deb3f928ceac0400192ecff/data/Resources/convert-sample-dark.png#gh-dark-mode-only)
+![Conversion Light](https://github.com/heidefinnischen/cuneo/blob/c164d16aa9d43a4c1deb3f928ceac0400192ecff/data/Resources/convert-sample-light.png#gh-light-mode-only)
 
 Calculate Mode Light | Calculate Mode Dark
 :-------------------:|:-------------------:
