@@ -8,7 +8,7 @@ Cuneo is a simple and straightforward app that lets you calculate and convert an
 ![Preview Dark](https://github.com/heidefinnischen/cuneo/blob/7ead689d97705c0418144af957912a4a7755ab12/data/Resources/app-dark.png#gh-dark-mode-only)
 ![Preview Light](https://github.com/heidefinnischen/cuneo/blob/7ead689d97705c0418144af957912a4a7755ab12/data/Resources/app-light.png#gh-light-mode-only)
 
-![Conversion Dark](https://github.com/heidefinnischen/cuneo/blob/22dce48ea8db093f9d9e3fbd1916521dbe9e4dca/data/Resources/convert-sample-dark.png#gh-dark-mode-only)
+![Conversion Dark](https://github.com/heidefinnischen/cuneo/blob/49842ce77d4cd7c9f17ac24eec481a2af6fcdcdc/data/Resources/convert-sample-dark.png#gh-dark-mode-only)
 ![Conversion Light](https://github.com/heidefinnischen/cuneo/blob/22dce48ea8db093f9d9e3fbd1916521dbe9e4dca/data/Resources/convert-sample-light.png#gh-light-mode-only)
 
 Calculate Mode Light | Calculate Mode Dark
