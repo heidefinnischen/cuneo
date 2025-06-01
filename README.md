@@ -5,11 +5,16 @@
 
 Cuneo is a simple and straightforward app that lets you calculate and convert anything you might encounter in your daily life. Being designed like a widget, Cuneo gets out of the way and is best used floating over a maximized window so you can focus on your tasks and dont need to have a clunky calculation app covering half your screen..
 
-![Preview Dark](https://github.com/heidefinnischen/resolutionary/blob/239a8ceb59640c2689fa2409b7861c415ef95ebe/data/screenshots/start-dark.png#gh-dark-mode-only)
-![Preview Light](https://github.com/heidefinnischen/resolutionary/blob/239a8ceb59640c2689fa2409b7861c415ef95ebe/data/screenshots/start-light.png#gh-light-mode-only)
+![Preview Dark](https://github.com/heidefinnischen/cuneo/blob/7ead689d97705c0418144af957912a4a7755ab12/data/Resources/app-dark.png#gh-dark-mode-only)
+![Preview Light](https://github.com/heidefinnischen/cuneo/blob/7ead689d97705c0418144af957912a4a7755ab12/data/Resources/app-light.png#gh-light-mode-only)
 
-Light | Dark
-:-:|:--:
+![Conversion Dark](https://github.com/heidefinnischen/cuneo/blob/7ead689d97705c0418144af957912a4a7755ab12/data/Resources/convert-sample-dark.png#gh-dark-mode-only)
+![Conversion Light](https://github.com/heidefinnischen/cuneo/blob/7ead689d97705c0418144af957912a4a7755ab12/data/Resources/convert-sample-light.png#gh-light-mode-only)
+
+Calculate Mode Light | Calculate Mode Dark
+:-------------------:|:-------------------:
+<img src="https://github.com/heidefinnischen/resolutionary/blob/239a8ceb59640c2689fa2409b7861c415ef95ebe/data/screenshots/sample-light.png" width="550" /> | <img src="https://github.com/heidefinnischen/resolutionary/blob/239a8ceb59640c2689fa2409b7861c415ef95ebe/data/screenshots/sample-dark.png" width="550" />
+Convert Mode Light | Convert Mode Dark
 <img src="https://github.com/heidefinnischen/resolutionary/blob/239a8ceb59640c2689fa2409b7861c415ef95ebe/data/screenshots/sample-light.png" width="550" /> | <img src="https://github.com/heidefinnischen/resolutionary/blob/239a8ceb59640c2689fa2409b7861c415ef95ebe/data/screenshots/sample-dark.png" width="550" />
 
 <br><br><br>
