@@ -18,26 +18,38 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import sys
+import os
 import gi
-from gi.repository import Gtk, Gdk
+from gi.repository import Gtk, Gdk, GLib
 
+import gettext
+import locale
 
 gi.require_version('Gtk', '4.0')
 gi.require_version('Adw', '1')
 
+locale.setlocale(locale.LC_ALL, '')
+
+# In Flatpak, translations are in /app/share/locale
+LOCALE_DIR = '/app/share/locale'
+
+gettext.bindtextdomain('cuneo', LOCALE_DIR)
+gettext.textdomain('cuneo')
+_ = gettext.gettext
+
 from gi.repository import Gtk, Gio, Adw
 from .window import CuneoWindow
+
+
 
 
 class CuneoApplication(Adw.Application):
     """The main application singleton class."""
 
     def __init__(self):
-        super().__init__(application_id='com.github.heidefinnischen.cuneo',
+        super().__init__(application_id='io.github.heidefinnischen.cuneo',
                          flags=Gio.ApplicationFlags.DEFAULT_FLAGS,
-                         resource_base_path='/com/github/heidefinnischen/cuneo')
-
-
+                         resource_base_path='/io/github/heidefinnischen/cuneo')
 
         self.create_action('quit', lambda *_: self.quit(), ['<primary>q'])
         self.create_action('about', self.on_about_action)
@@ -47,7 +59,7 @@ class CuneoApplication(Adw.Application):
 
     def _load_css(self):
         css_provider = Gtk.CssProvider()
-        css_provider.load_from_resource("/com/github/heidefinnischen/cuneo/style.css")
+        css_provider.load_from_resource("/io/github/heidefinnischen/cuneo/style.css")
         Gtk.StyleContext.add_provider_for_display(
             Gdk.Display.get_default(),
             css_provider,
@@ -68,14 +80,19 @@ class CuneoApplication(Adw.Application):
 
     def on_about_action(self, *args):
         """Callback for the app.about action."""
-        about = Adw.AboutDialog(application_name='cuneo',
-                                application_icon='com.github.heidefinnischen.cuneo',
+        about = Adw.AboutDialog(application_name='Cuneo',
+                                application_icon='io.github.heidefinnischen.cuneo',
                                 developer_name='Jan-Niklas Kuhn',
-                                version='0.1.0',
+                                version='0.9.0',
                                 developers=['Jan-Niklas Kuhn'],
                                 copyright='© 2025 Jan-Niklas Kuhn')
         # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
         about.set_translator_credits(_('translator-credits'))
+        about.set_artists(['Jan-Niklas Kuhn'])
+        about.set_designers(['Jan-Niklas Kuhn'])
+        about.set_issue_url('https://github.com/heidefinnischen/cuneo/issues')
+        about.set_website('https://github.com/heidefinnischen/cuneo')
+        about.set_license_type(3)
         about.present()
 
     def on_preferences_action(self, widget, _):

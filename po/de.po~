@@ -1,0 +1,1537 @@
+# German translations for cuneo package.
+# Copyright (C) 2025 THE cuneo'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the cuneo package.
+# Jan-Niklas Kuhn <x@x.x>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: cuneo\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-06-01 16:31+0200\n"
+"PO-Revision-Date: 2025-05-30 15:27+0200\n"
+"Last-Translator: Jan-Niklas Kuhn <x@x.x>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: data/io.github.heidefinnischen.cuneo.desktop.in:2
+#: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:7
+msgid "Cuneo"
+msgstr "Cuneo"
+
+#: data/io.github.heidefinnischen.cuneo.desktop.in:8
+msgid "Utility;Calculator;Conversion;Convert;Calculate;Converter;Calculation;"
+msgstr "Dienst;Rechner;Taschenrechner;Konvertieren;Umrechnen;Rechnen;Konvertierer;"
+
+#: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:8
+msgid "Widget-like Calculator and Converter"
+msgstr "Widget-ähnlicher Taschenrechner und Umrechner"
+
+#: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:10
+msgid ""
+"Cuneo is a simple and straightforward app that lets you calculate and "
+"convert anything you might encounter in your daily life. Being designed like "
+"a widget Cuneo gets out of the way and is best used floating over a "
+"maximized window so you can focus on your tasks and dont need to have a "
+"clunky calculation app covering half your screen."
+msgstr ""
+
+#: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:14
+msgid "Jan-Niklas Kuhn"
+msgstr "Jan-Niklas Kuhn"
+
+#: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:40
+#: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:44
+msgid "A caption"
+msgstr "x"
+
+#. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
+#: src/main.py:90
+msgid "translator-credits"
+msgstr "Jan-Niklas Kuhn"
+
+#: src/window.ui:69
+msgid "Main Menu"
+msgstr "Hauptmenü"
+
+#: src/window.ui:167
+msgid "Calculate"
+msgstr "Rechnen"
+
+#: src/window.ui:197 src/window.ui:274
+msgid "Copy to clipboard"
+msgstr "In die Zwischenablage kopieren"
+
+#: src/window.ui:264 src/window.ui:405
+msgid "Result"
+msgstr "Ergebnis"
+
+#: src/window.ui:354
+msgid "Convert"
+msgstr "Umrechnen"
+
+#: src/window.ui:584
+msgid "_Scratchpad"
+msgstr "_Scratchpad"
+
+#: src/window.ui:588
+msgid "_Calculation/Conversion History"
+msgstr "_Verlauf"
+
+#: src/window.ui:592
+msgid "_Preferences"
+msgstr "_Einstellungen"
+
+#: src/window.ui:596
+msgid "_Keyboard Shortcuts"
+msgstr "_Tastenkürzel"
+
+#: src/window.ui:600
+msgid "_About Cuneo"
+msgstr "_Über Cuneo"
+
+#. id: singular name, plural name, short, factor
+#: src/units.py:5
+msgid "meter"
+msgstr "Meter"
+
+#: src/units.py:5
+msgid "meters"
+msgstr "Meter"
+
+#: src/units.py:5
+msgid "m"
+msgstr "m"
+
+#: src/units.py:6
+msgid "kilometer"
+msgstr "Kilometer"
+
+#: src/units.py:6
+msgid "kilometers"
+msgstr "Kilometer"
+
+#: src/units.py:6
+msgid "km"
+msgstr "km"
+
+#: src/units.py:7
+msgid "centimeter"
+msgstr "Zentimeter"
+
+#: src/units.py:7
+msgid "centimeters"
+msgstr "Zentimeter"
+
+#: src/units.py:7
+msgid "cm"
+msgstr "cm"
+
+#: src/units.py:8
+msgid "millimeter"
+msgstr "Millimeter"
+
+#: src/units.py:8
+msgid "millimeters"
+msgstr "Millimeter"
+
+#: src/units.py:8
+msgid "mm"
+msgstr "mm"
+
+#: src/units.py:9
+msgid "micrometer"
+msgstr "Mikrometer"
+
+#: src/units.py:9
+msgid "micrometers"
+msgstr "Mikrometer"
+
+#: src/units.py:9
+msgid "μm"
+msgstr "μm"
+
+#: src/units.py:10
+msgid "nanometer"
+msgstr "Nanometer"
+
+#: src/units.py:10
+msgid "nanometers"
+msgstr "Nanometer"
+
+#: src/units.py:10
+msgid "nm"
+msgstr "nm"
+
+#: src/units.py:11
+msgid "inch"
+msgstr "Zoll"
+
+#: src/units.py:11
+msgid "inches"
+msgstr "Zoll"
+
+#: src/units.py:11
+msgid "in"
+msgstr "in"
+
+#: src/units.py:12
+msgid "foot"
+msgstr "Fuß"
+
+#: src/units.py:12
+msgid "feet"
+msgstr "Fuß"
+
+#: src/units.py:12
+msgid "ft"
+msgstr "ft"
+
+#: src/units.py:13
+msgid "yard"
+msgstr "Yard"
+
+#: src/units.py:13
+msgid "yards"
+msgstr "Yards"
+
+#: src/units.py:13
+msgid "yd"
+msgstr "yd"
+
+#: src/units.py:14
+msgid "mile"
+msgstr "Meile"
+
+#: src/units.py:14
+msgid "miles"
+msgstr "Meilen"
+
+#: src/units.py:14
+msgid "mi"
+msgstr "mi"
+
+#: src/units.py:15
+msgid "nautical mile"
+msgstr "Nautische Meile"
+
+#: src/units.py:15
+msgid "nautical miles"
+msgstr "Nautische Meilen"
+
+#: src/units.py:15
+msgid "nmi"
+msgstr "nmi"
+
+#. id: singular name, plural name, short, factor (in seconds)
+#: src/units.py:20
+msgid "second"
+msgstr "Sekunde"
+
+#: src/units.py:20
+msgid "seconds"
+msgstr "Sekunden"
+
+#: src/units.py:20
+msgid "s"
+msgstr "s"
+
+#: src/units.py:21
+msgid "millisecond"
+msgstr "Millisekunde"
+
+#: src/units.py:21
+msgid "milliseconds"
+msgstr "Millisekunden"
+
+#: src/units.py:21
+msgid "ms"
+msgstr "ms"
+
+#: src/units.py:22
+msgid "microsecond"
+msgstr "Mikrosekunden"
+
+#: src/units.py:22
+msgid "microseconds"
+msgstr "Mikrosekunden"
+
+#: src/units.py:22
+msgid "μs"
+msgstr "μs"
+
+#: src/units.py:23
+msgid "nanosecond"
+msgstr "Nanosekunde"
+
+#: src/units.py:23
+msgid "nanoseconds"
+msgstr "Nanosekunden"
+
+#: src/units.py:23
+msgid "ns"
+msgstr "ns"
+
+#: src/units.py:24
+msgid "minute"
+msgstr "Minute"
+
+#: src/units.py:24
+msgid "minutes"
+msgstr "Minuten"
+
+#: src/units.py:24
+msgid "min"
+msgstr "min"
+
+#: src/units.py:25
+msgid "hour"
+msgstr "Stunde"
+
+#: src/units.py:25
+msgid "hours"
+msgstr "Stunden"
+
+#: src/units.py:25
+msgid "h"
+msgstr "h"
+
+#: src/units.py:26
+msgid "day"
+msgstr "Tag"
+
+#: src/units.py:26
+msgid "days"
+msgstr "Tage"
+
+#: src/units.py:26
+msgid "d"
+msgstr "d"
+
+#: src/units.py:27
+msgid "week"
+msgstr "Woche"
+
+#: src/units.py:27
+msgid "weeks"
+msgstr "Wochen"
+
+#: src/units.py:27
+msgid "wk"
+msgstr "wk"
+
+#: src/units.py:28
+msgid "month"
+msgstr "Monat"
+
+#: src/units.py:28
+msgid "months"
+msgstr "Monate"
+
+#: src/units.py:28
+msgid "mo"
+msgstr "mo"
+
+#. average month (30.44 days)
+#: src/units.py:29
+msgid "year"
+msgstr "Jahr"
+
+#: src/units.py:29
+msgid "years"
+msgstr "Jahre"
+
+#: src/units.py:29
+msgid "yr"
+msgstr "yr"
+
+#: src/units.py:34
+msgid "meter per second"
+msgstr "Meter pro Sekunde"
+
+#: src/units.py:34
+msgid "meters per second"
+msgstr "Meter pro Sekunde"
+
+#: src/units.py:34
+msgid "m/s"
+msgstr "m/s"
+
+#: src/units.py:35
+msgid "kilometer per hour"
+msgstr "Kilometer pro Stunde"
+
+#: src/units.py:35
+msgid "kilometers per hour"
+msgstr "Kilometer pro Stunde"
+
+#: src/units.py:35
+msgid "km/h"
+msgstr "km/h"
+
+#. ≈ 0.27778
+#: src/units.py:36
+msgid "mile per hour"
+msgstr "Meilen pro Stunde"
+
+#: src/units.py:36
+msgid "miles per hour"
+msgstr "Meilen pro Stunde"
+
+#: src/units.py:36
+msgid "mph"
+msgstr "mph"
+
+#. ≈ 0.44704
+#: src/units.py:37
+msgid "foot per second"
+msgstr "Fuß pro Sekunde"
+
+#: src/units.py:37
+msgid "feet per second"
+msgstr "Fuß pro Sekunde"
+
+#: src/units.py:37
+msgid "ft/s"
+msgstr "ft/s"
+
+#: src/units.py:38
+msgid "knot"
+msgstr "Knoten"
+
+#: src/units.py:38
+msgid "knots"
+msgstr "Knoten"
+
+#: src/units.py:38
+msgid "kn"
+msgstr "kn"
+
+#. ≈ 0.51444
+#: src/units.py:39
+msgid "kilometer per second"
+msgstr "Kilometer pro Sekunde"
+
+#: src/units.py:39
+msgid "kilometers per second"
+msgstr "Kilometer pro Sekunde"
+
+#: src/units.py:39
+msgid "km/s"
+msgstr "km/s"
+
+#: src/units.py:40
+msgid "centimeter per second"
+msgstr "Zentimeter pro Sekunde"
+
+#: src/units.py:40
+msgid "centimeters per second"
+msgstr "Zentimeter pro Sekunde"
+
+#: src/units.py:40
+msgid "cm/s"
+msgstr "cm/s"
+
+#. id: singular name, plural name, short, factor (relative to kilogram)
+#: src/units.py:45
+msgid "kilogram"
+msgstr "Kilogramm"
+
+#: src/units.py:45
+msgid "kilograms"
+msgstr "Kilogramm"
+
+#: src/units.py:45
+msgid "kg"
+msgstr "kg"
+
+#: src/units.py:46
+msgid "gram"
+msgstr "Gramm"
+
+#: src/units.py:46
+msgid "grams"
+msgstr "Gramm"
+
+#: src/units.py:46
+msgid "g"
+msgstr "g"
+
+#: src/units.py:47
+msgid "milligram"
+msgstr "Milligramm"
+
+#: src/units.py:47
+msgid "milligrams"
+msgstr "Milligramm"
+
+#: src/units.py:47
+msgid "mg"
+msgstr "mg"
+
+#: src/units.py:48
+msgid "microgram"
+msgstr "Mikrogramm"
+
+#: src/units.py:48
+msgid "micrograms"
+msgstr "Mikrogramm"
+
+#: src/units.py:48
+msgid "μg"
+msgstr "μg"
+
+#: src/units.py:49
+msgid "nanogram"
+msgstr "Nanogramm"
+
+#: src/units.py:49
+msgid "nanograms"
+msgstr "Nanogramm"
+
+#: src/units.py:49
+msgid "ng"
+msgstr "ng"
+
+#: src/units.py:50
+msgid "tonne"
+msgstr "Tonne"
+
+#: src/units.py:50
+msgid "tonnes"
+msgstr "Tonnen"
+
+#: src/units.py:50
+msgid "t"
+msgstr "t"
+
+#. metric ton
+#: src/units.py:51
+msgid "ounce"
+msgstr "Unze"
+
+#: src/units.py:51
+msgid "ounces"
+msgstr "Unzen"
+
+#: src/units.py:51
+msgid "oz"
+msgstr "oz"
+
+#: src/units.py:52
+msgid "pound"
+msgstr "Pfund"
+
+#: src/units.py:52
+msgid "pounds"
+msgstr "Pfunde"
+
+#: src/units.py:52
+msgid "lb"
+msgstr "lb"
+
+#: src/units.py:53
+msgid "stone"
+msgstr "Stone"
+
+#: src/units.py:53
+msgid "stones"
+msgstr "Stone"
+
+#: src/units.py:53
+msgid "st"
+msgstr "st"
+
+#: src/units.py:54
+msgid "short ton"
+msgstr "Short ton"
+
+#: src/units.py:54
+msgid "short tons"
+msgstr "Short ton"
+
+#: src/units.py:54
+msgid "ton"
+msgstr "tn. sh."
+
+#. US ton
+#: src/units.py:55
+msgid "long ton"
+msgstr "Long ton"
+
+#: src/units.py:55
+msgid "long tons"
+msgstr "Long ton"
+
+#: src/units.py:55
+msgid "lt"
+msgstr "tn. l."
+
+#: src/units.py:59
+msgid "cubic meter"
+msgstr "Kubikmeter"
+
+#: src/units.py:59
+msgid "cubic meters"
+msgstr "Kubikmeter"
+
+#: src/units.py:59
+msgid "m³"
+msgstr "m³"
+
+#: src/units.py:60
+msgid "cubic centimeter"
+msgstr "Kubikzentimeter"
+
+#: src/units.py:60
+msgid "cubic centimeters"
+msgstr "Kubikzentimeter"
+
+#: src/units.py:60
+msgid "cm³"
+msgstr "cm³"
+
+#. 1 cm³ = 1e-6 m³
+#: src/units.py:61
+msgid "cubic millimeter"
+msgstr "Kubikmillimeter"
+
+#: src/units.py:61
+msgid "cubic millimeters"
+msgstr "Kubikmillimeter"
+
+#: src/units.py:61
+msgid "mm³"
+msgstr "mm³"
+
+#: src/units.py:62
+msgid "liter"
+msgstr "Liter"
+
+#: src/units.py:62
+msgid "liters"
+msgstr "Liter"
+
+#: src/units.py:62
+msgid "L"
+msgstr "L"
+
+#. 1 L = 0.001 m³
+#: src/units.py:63
+msgid "milliliter"
+msgstr "Milliliter"
+
+#: src/units.py:63
+msgid "milliliters"
+msgstr "Milliliter"
+
+#: src/units.py:63
+msgid "mL"
+msgstr "mL"
+
+#. 1 mL = 1e-6 m³
+#: src/units.py:64
+msgid "microliter"
+msgstr "Mikroliter"
+
+#: src/units.py:64
+msgid "microliters"
+msgstr "Mikroliter"
+
+#: src/units.py:64
+msgid "μL"
+msgstr "μL"
+
+#: src/units.py:65
+msgid "cubic foot"
+msgstr "Kubikfuß"
+
+#: src/units.py:65
+msgid "cubic feet"
+msgstr "Kubikfuß"
+
+#: src/units.py:65
+msgid "ft³"
+msgstr "ft³"
+
+#: src/units.py:66
+msgid "cubic inch"
+msgstr "Kubikzoll"
+
+#: src/units.py:66
+msgid "cubic inches"
+msgstr "Kubikzoll"
+
+#: src/units.py:66
+msgid "in³"
+msgstr "in³"
+
+#: src/units.py:67
+msgid "cubic yard"
+msgstr "Kubikyard"
+
+#: src/units.py:67
+msgid "cubic yards"
+msgstr "Kubikyard"
+
+#: src/units.py:67
+msgid "yd³"
+msgstr "yd³"
+
+#: src/units.py:68
+msgid "US gallon"
+msgstr "US-Gallone"
+
+#: src/units.py:68
+msgid "US gallons"
+msgstr "US-Gallonen"
+
+#: src/units.py:68
+msgid "gal"
+msgstr "gal"
+
+#. US liquid gallon
+#: src/units.py:69
+msgid "US quart"
+msgstr "US-Quart"
+
+#: src/units.py:69
+msgid "US quarts"
+msgstr "US-Quart"
+
+#: src/units.py:69
+msgid "qt"
+msgstr "qt"
+
+#: src/units.py:70
+msgid "US pint"
+msgstr "US-Pint"
+
+#: src/units.py:70
+msgid "US pints"
+msgstr "US-Pint"
+
+#: src/units.py:70
+msgid "pt"
+msgstr "pt"
+
+#: src/units.py:71
+msgid "US fluid ounce"
+msgstr "US fluid ounce"
+
+#: src/units.py:71
+msgid "US fluid ounces"
+msgstr "US fluid ounces"
+
+#: src/units.py:71
+msgid "fl oz"
+msgstr "fl oz"
+
+#. id: singular name, plural name, short, factor (in bits), unit subcategory tag
+#: src/units.py:76
+msgid "bit"
+msgstr "Bit"
+
+#: src/units.py:76
+msgid "bits"
+msgstr "Bits"
+
+#: src/units.py:77
+msgid "byte"
+msgstr "Byte"
+
+#: src/units.py:77
+msgid "bytes"
+msgstr "Bytes"
+
+#: src/units.py:77
+msgid "B"
+msgstr "B"
+
+#: src/units.py:79
+msgid "kilobit"
+msgstr "Kilobit"
+
+#: src/units.py:79
+msgid "kilobits"
+msgstr "Kilobits"
+
+#: src/units.py:79
+msgid "Kbit"
+msgstr "KBit"
+
+#: src/units.py:80
+msgid "kilobyte"
+msgstr "Kilobyte"
+
+#: src/units.py:80
+msgid "kilobytes"
+msgstr "Kilobytes"
+
+#: src/units.py:80
+msgid "KB"
+msgstr "KB"
+
+#: src/units.py:82
+msgid "megabit"
+msgstr "Megabit"
+
+#: src/units.py:82
+msgid "megabits"
+msgstr "Megabits"
+
+#: src/units.py:82
+msgid "Mbit"
+msgstr "MBit"
+
+#: src/units.py:83
+msgid "megabyte"
+msgstr "Megabyte"
+
+#: src/units.py:83
+msgid "megabytes"
+msgstr "Megabytes"
+
+#: src/units.py:83
+msgid "MB"
+msgstr "MB"
+
+#: src/units.py:85
+msgid "gigabit"
+msgstr "Gigabit"
+
+#: src/units.py:85
+msgid "gigabits"
+msgstr "Gigabits"
+
+#: src/units.py:85
+msgid "Gbit"
+msgstr "GBit"
+
+#: src/units.py:86
+msgid "gigabyte"
+msgstr "Gigabyte"
+
+#: src/units.py:86
+msgid "gigabytes"
+msgstr "Gigabytes"
+
+#: src/units.py:86
+msgid "GB"
+msgstr "GB"
+
+#: src/units.py:88
+msgid "terabit"
+msgstr "Terabit"
+
+#: src/units.py:88
+msgid "terabits"
+msgstr "Terabits"
+
+#: src/units.py:88
+msgid "Tbit"
+msgstr "Tbit"
+
+#: src/units.py:89
+msgid "terabyte"
+msgstr "Terabyte"
+
+#: src/units.py:89
+msgid "terabytes"
+msgstr "Terabytes"
+
+#: src/units.py:89
+msgid "TB"
+msgstr "TB"
+
+#. Binary units (powers of 1024)
+#: src/units.py:92
+msgid "kibibit"
+msgstr "Kibibit"
+
+#: src/units.py:92
+msgid "kibibits"
+msgstr "Kibibit"
+
+#: src/units.py:92
+msgid "Kibit"
+msgstr "Kibit"
+
+#: src/units.py:93
+msgid "kibibyte"
+msgstr "Kibibyte"
+
+#: src/units.py:93
+msgid "kibibytes"
+msgstr "Kibibytes"
+
+#: src/units.py:93
+msgid "KiB"
+msgstr "KiB"
+
+#. 1024 bytes * 8 bits
+#: src/units.py:95
+msgid "mebibit"
+msgstr "Mebibit"
+
+#: src/units.py:95
+msgid "mebibits"
+msgstr "Mebibits"
+
+#: src/units.py:95
+msgid "Mibit"
+msgstr "Mibit"
+
+#: src/units.py:96
+msgid "mebibyte"
+msgstr "Mebibyte"
+
+#: src/units.py:96
+msgid "mebibytes"
+msgstr "Mebibytes"
+
+#: src/units.py:96
+msgid "MiB"
+msgstr "MiB"
+
+#: src/units.py:98
+msgid "gibibit"
+msgstr "Gibibit"
+
+#: src/units.py:98
+msgid "gibibits"
+msgstr "Gibibits"
+
+#: src/units.py:98
+msgid "Gibit"
+msgstr "Gibit"
+
+#: src/units.py:99
+msgid "gibibyte"
+msgstr "Gibibyte"
+
+#: src/units.py:99
+msgid "gibibytes"
+msgstr "Gibibytes"
+
+#: src/units.py:99
+msgid "GiB"
+msgstr "GiB"
+
+#: src/units.py:101
+msgid "tebibit"
+msgstr "Tebibit"
+
+#: src/units.py:101
+msgid "tebibits"
+msgstr "Tebibits"
+
+#: src/units.py:101
+msgid "Tibit"
+msgstr "Tebibit"
+
+#: src/units.py:102
+msgid "tebibyte"
+msgstr "Tebibyte"
+
+#: src/units.py:102
+msgid "tebibytes"
+msgstr "Tebibytes"
+
+#: src/units.py:102
+msgid "TiB"
+msgstr "TiB"
+
+#. id: singular name, plural name, short, factor (relative to square meter)
+#: src/units.py:107
+msgid "square meter"
+msgstr "Quadratmeter"
+
+#: src/units.py:107
+msgid "square meters"
+msgstr "Quadratmeter"
+
+#: src/units.py:107
+msgid "m²"
+msgstr "m²"
+
+#: src/units.py:108
+msgid "square centimeter"
+msgstr "Quadratzentimeter"
+
+#: src/units.py:108
+msgid "square centimeters"
+msgstr "Quadratzentimeter"
+
+#: src/units.py:108
+msgid "cm²"
+msgstr "cm²"
+
+#: src/units.py:109
+msgid "square millimeter"
+msgstr "Quadratmillimeter"
+
+#: src/units.py:109
+msgid "square millimeters"
+msgstr "Quadratmillimeter"
+
+#: src/units.py:109
+msgid "mm²"
+msgstr "mm²"
+
+#: src/units.py:110
+msgid "square kilometer"
+msgstr "Quadratkilometer"
+
+#: src/units.py:110
+msgid "square kilometers"
+msgstr "Quadratkilometer"
+
+#: src/units.py:110
+msgid "km²"
+msgstr "km²"
+
+#: src/units.py:111
+msgid "square inch"
+msgstr "Quadratzoll"
+
+#: src/units.py:111
+msgid "square inches"
+msgstr "Quadratzoll"
+
+#: src/units.py:111
+msgid "in²"
+msgstr "in²"
+
+#: src/units.py:112
+msgid "square foot"
+msgstr "Quadratfuß"
+
+#: src/units.py:112
+msgid "square feet"
+msgstr "Quadratfuß"
+
+#: src/units.py:112
+msgid "ft²"
+msgstr "ft²"
+
+#: src/units.py:113
+msgid "square yard"
+msgstr "Quadratyard"
+
+#: src/units.py:113
+msgid "square yards"
+msgstr "Quadratyard"
+
+#: src/units.py:113
+msgid "yd²"
+msgstr "yd²"
+
+#: src/units.py:114
+msgid "square mile"
+msgstr "Quadratmeile"
+
+#: src/units.py:114
+msgid "square miles"
+msgstr "Quadratmeilen"
+
+#: src/units.py:114
+msgid "mi²"
+msgstr "mi²"
+
+#: src/units.py:115
+msgid "are"
+msgstr "Ar"
+
+#: src/units.py:115
+msgid "ares"
+msgstr "Ar"
+
+#: src/units.py:115
+msgid "a"
+msgstr "a"
+
+#: src/units.py:116
+msgid "hectare"
+msgstr "Hektar"
+
+#: src/units.py:116
+msgid "hectares"
+msgstr "Hektar"
+
+#: src/units.py:116
+msgid "ha"
+msgstr "ha"
+
+#: src/units.py:117
+msgid "acre"
+msgstr "Acre"
+
+#: src/units.py:117
+msgid "acres"
+msgstr "Acre"
+
+#: src/units.py:117
+msgid "ac"
+msgstr "ac"
+
+#. id: singular name, plural name, short, factor (in Pascals)
+#: src/units.py:123
+msgid "atmosphere"
+msgstr "physikalische Atmosphäre"
+
+#: src/units.py:123
+msgid "atmospheres"
+msgstr "physikalische Atmosphären"
+
+#: src/units.py:123
+msgid "atm"
+msgstr "atm"
+
+#: src/units.py:124
+msgid "pascal"
+msgstr "Pascal"
+
+#: src/units.py:124
+msgid "pascals"
+msgstr "Pascal"
+
+#: src/units.py:124
+msgid "Pa"
+msgstr "Pa"
+
+#: src/units.py:125
+msgid "kilopascal"
+msgstr "Kilopascal"
+
+#: src/units.py:125
+msgid "kilopascals"
+msgstr "Kilopascal"
+
+#: src/units.py:125
+msgid "kPa"
+msgstr "kPa"
+
+#: src/units.py:126
+msgid "megapascal"
+msgstr "Megapascal"
+
+#: src/units.py:126
+msgid "megapascals"
+msgstr "Megapascal"
+
+#: src/units.py:126
+msgid "MPa"
+msgstr "MPa"
+
+#: src/units.py:127
+msgid "bar"
+msgstr "Bar"
+
+#: src/units.py:127
+msgid "bars"
+msgstr "Bar"
+
+#: src/units.py:128
+msgid "millibar"
+msgstr "Millibar"
+
+#: src/units.py:128
+msgid "millibars"
+msgstr "Millibar"
+
+#: src/units.py:128
+msgid "mbar"
+msgstr "mbar"
+
+#: src/units.py:129
+msgid "pound per square inch"
+msgstr "Pfund pro Quadratzoll"
+
+#: src/units.py:129
+msgid "pounds per square inch"
+msgstr "Pfund pro Quadratzoll"
+
+#: src/units.py:129
+msgid "psi"
+msgstr "psi"
+
+#: src/units.py:130
+msgid "millimeter of mercury"
+msgstr "Millimeter Quecksilbersäule"
+
+#: src/units.py:130
+msgid "millimeters of mercury"
+msgstr "Millimeter Quecksilbersäule"
+
+#: src/units.py:130
+msgid "mmHg"
+msgstr "mmHg"
+
+#: src/units.py:131
+msgid "inch of mercury"
+msgstr "Zoll Quecksilbersäule"
+
+#: src/units.py:131
+msgid "inches of mercury"
+msgstr "Zoll Quecksilbersäule"
+
+#: src/units.py:131
+msgid "inHg"
+msgstr "inHg"
+
+#. id: singular name, plural name, short, factor (in joules)
+#: src/units.py:136
+msgid "joule"
+msgstr "Joule"
+
+#: src/units.py:136
+msgid "joules"
+msgstr "Joule"
+
+#: src/units.py:136
+msgid "J"
+msgstr "J"
+
+#: src/units.py:137
+msgid "kilojoule"
+msgstr "Kilojoule"
+
+#: src/units.py:137
+msgid "kilojoules"
+msgstr "Kilojoule"
+
+#: src/units.py:137
+msgid "kJ"
+msgstr "kJ"
+
+#: src/units.py:138
+msgid "megajoule"
+msgstr "Megajoule"
+
+#: src/units.py:138
+msgid "megajoules"
+msgstr "Megajoule"
+
+#: src/units.py:138
+msgid "MJ"
+msgstr "MJ"
+
+#: src/units.py:139
+msgid "gigajoule"
+msgstr "Gigajoule"
+
+#: src/units.py:139
+msgid "gigajoules"
+msgstr "Gigajoule"
+
+#: src/units.py:139
+msgid "GJ"
+msgstr "GJ"
+
+#: src/units.py:140
+msgid "watt-hour"
+msgstr "Wattstunde"
+
+#: src/units.py:140
+msgid "watt-hours"
+msgstr "Wattstunden"
+
+#: src/units.py:140
+msgid "Wh"
+msgstr "Wh"
+
+#: src/units.py:141
+msgid "kilowatt-hour"
+msgstr "Kilowattstunde"
+
+#: src/units.py:141
+msgid "kilowatt-hours"
+msgstr "Kilowattstunden"
+
+#: src/units.py:141
+msgid "kWh"
+msgstr "kWh"
+
+#: src/units.py:142
+msgid "calorie"
+msgstr "Kalorie"
+
+#: src/units.py:142
+msgid "calories"
+msgstr "Kalorien"
+
+#: src/units.py:142
+msgid "cal"
+msgstr "cal"
+
+#: src/units.py:143
+msgid "kilocalorie"
+msgstr "Kilokalorie"
+
+#: src/units.py:143
+msgid "kilocalories"
+msgstr "Kilokalorien"
+
+#: src/units.py:143
+msgid "kcal"
+msgstr "kcal"
+
+#: src/units.py:144
+msgid "British thermal unit"
+msgstr "British thermal unit"
+
+#: src/units.py:144
+msgid "British thermal units"
+msgstr "British thermal units"
+
+#: src/units.py:144
+msgid "BTU"
+msgstr "BTU"
+
+#: src/units.py:145
+msgid "electronvolt"
+msgstr "Elektronenvolt"
+
+#: src/units.py:145
+msgid "electronvolts"
+msgstr "Elektronenvolt"
+
+#: src/units.py:145
+msgid "eV"
+msgstr "eV"
+
+#. id: singular name, plural name, short, factor (in hertz)
+#: src/units.py:150
+msgid "hertz"
+msgstr "Hertz"
+
+#: src/units.py:150
+msgid "Hz"
+msgstr "Hz"
+
+#: src/units.py:151
+msgid "kilohertz"
+msgstr "Kilohertz"
+
+#: src/units.py:151
+msgid "kHz"
+msgstr "kHz"
+
+#: src/units.py:152
+msgid "megahertz"
+msgstr "Megahertz"
+
+#: src/units.py:152
+msgid "MHz"
+msgstr "MHz"
+
+#: src/units.py:153
+msgid "gigahertz"
+msgstr "Gigahertz"
+
+#: src/units.py:153
+msgid "GHz"
+msgstr "GHz"
+
+#: src/units.py:154
+msgid "terahertz"
+msgstr "Terahertz"
+
+#: src/units.py:154
+msgid "THz"
+msgstr "THz"
+
+#: src/units.py:155
+msgid "revolution per minute"
+msgstr "Umdrehung pro Minute"
+
+#: src/units.py:155
+msgid "revolutions per minute"
+msgstr "Umdrehungen pro Minute"
+
+#: src/units.py:155
+msgid "rpm"
+msgstr "rpm"
+
+#: src/units.py:161
+msgid "degree Celsius"
+msgstr "Grad Celsius"
+
+#: src/units.py:161
+msgid "degrees Celsius"
+msgstr "Grad Celsius"
+
+#: src/units.py:161
+msgid "°C"
+msgstr "°C"
+
+#: src/units.py:166
+msgid "degree Fahrenheit"
+msgstr "Grad Fahrenheit"
+
+#: src/units.py:166
+msgid "degrees Fahrenheit"
+msgstr "Grad Fahrenheit"
+
+#: src/units.py:166
+msgid "°F"
+msgstr "°F"
+
+#: src/units.py:171
+msgid "kelvin"
+msgstr "Kelvin"
+
+#: src/units.py:171
+msgid "kelvins"
+msgstr "Kelvin"
+
+#: src/units.py:171
+msgid "K"
+msgstr "K"
+
+#: src/units.py:176
+msgid "degree Rankine"
+msgstr "Grad Rankine"
+
+#: src/units.py:176
+msgid "degrees Rankine"
+msgstr "Grad Rankine"
+
+#: src/units.py:176
+msgid "°R"
+msgstr "°Ra"
+
+#: src/units.py:199
+msgid "Digital"
+msgstr "Digital"
+
+#: src/units.py:200
+msgid "Binary"
+msgstr "Binär"
+
+#: src/units.py:201
+msgid "Metric"
+msgstr "Metrisch"
+
+#: src/units.py:202
+msgid "Imperial"
+msgstr "Imperial"
+
+#: src/units.py:203
+msgid "US Customary"
+msgstr "Angloamerikanisch"
+
+#: src/units.py:204
+msgid "Nautical"
+msgstr "Nautisch"
+
+#: src/units.py:223
+msgid "Length"
+msgstr "Länge"
+
+#: src/units.py:224
+msgid "Speed"
+msgstr "Geschwindigkeit"
+
+#: src/units.py:225
+msgid "Temperature"
+msgstr "Temperatur"
+
+#: src/units.py:226
+msgid "Area"
+msgstr "Fläche"
+
+#: src/units.py:227
+msgid "Time"
+msgstr "Zeit"
+
+#: src/units.py:228
+msgid "Mass"
+msgstr "Masse"
+
+#: src/units.py:229
+msgid "Volume"
+msgstr "Volumen"
+
+#: src/units.py:230
+msgid "Data"
+msgstr "Daten"
+
+#: src/units.py:231
+msgid "Pressure"
+msgstr "Druck"
+
+#: src/units.py:232
+msgid "Energy"
+msgstr "Energie"
+
+#: src/units.py:233
+msgid "Frequency"
+msgstr "Frequenz"
+
+#: src/gtk/help-overlay.ui:11
+msgctxt "shortcut window"
+msgid "General"
+msgstr "Allgemein"
+
+#: src/gtk/help-overlay.ui:15
+msgid "Switch Mode"
+msgstr "Modus wechseln"
+
+#: src/gtk/help-overlay.ui:21
+msgctxt "shortcut window"
+msgid "Show Shortcuts"
+msgstr "Tastenkürzel anzeigen"
+
+#: src/gtk/help-overlay.ui:27
+msgctxt "shortcut window"
+msgid "Quit"
+msgstr "Beenden"
+
+#: src/gtk/help-overlay.ui:35
+msgid "Editing"
+msgstr "Bearbeiten"
+
+#: src/gtk/help-overlay.ui:38
+msgid "Select All"
+msgstr "Alles auswählen"
+
+#: src/gtk/help-overlay.ui:44
+msgid "Cut"
+msgstr "Ausschneiden"
+
+#: src/gtk/help-overlay.ui:50
+msgid "Copy"
+msgstr "Kopieren"
+
+#: src/gtk/help-overlay.ui:56
+msgid "Paste"
+msgstr "Einfügen"
+
+#: src/gtk/help-overlay.ui:62
+msgid "Undo"
+msgstr "Rückgängig"
+
+#: src/gtk/help-overlay.ui:68
+msgid "Redo"
+msgstr "Wiederholen"
+
+#: src/gtk/help-overlay.ui:76
+msgctxt "shortcut window"
+msgid "Insert"
+msgstr "Einsetzen"
+
+#: src/gtk/help-overlay.ui:79
+msgid "+ (Plus)"
+msgstr "+ (Pluszeichen)"
+
+#: src/gtk/help-overlay.ui:85
+msgid "√() (Square Root)"
+msgstr "√() (Quadratwurzel)"
+
+#~ msgid "Invalid"
+#~ msgstr "Ungültig"

@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/com/github/heidefinnischen/cuneo">
+  <gresource prefix="/io/github/heidefinnischen/cuneo">
     <file preprocess="xml-stripblanks">window.ui</file>
     <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
     <file>style.css</file>
     <file>style-dark.css</file>
+    <file>style-hc.css</file>
+    <file>style-hc-dark.css</file>
+  </gresource>
+  <gresource prefix="/io/github/heidefinnischen/cuneo/icons/scalable/actions/">
+    <file preprocess="xml-stripblanks" alias="globe-symbolic.svg">../data/icons/hicolor/scalable/actions/globe-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="mass-symbolic.svg">../data/icons/hicolor/scalable/actions/mass-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="stopwatch-symbolic.svg">../data/icons/hicolor/scalable/actions/stopwatch-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="ruler-angled-symbolic.svg">../data/icons/hicolor/scalable/actions/ruler-angled-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="ruler-corner-symbolic.svg">../data/icons/hicolor/scalable/actions/ruler-corner-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="speedometer-symbolic.svg">../data/icons/hicolor/scalable/actions/speedometer-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="thermometer-symbolic.svg">../data/icons/hicolor/scalable/actions/thermometer-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="horizontal-arrows-slim-symbolic.svg">../data/icons/hicolor/scalable/actions/horizontal-arrows-slim-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="calculator-symbolic.svg">../data/icons/hicolor/scalable/actions/calculator-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="item-missing-symbolic.svg">../data/icons/hicolor/scalable/actions/item-missing-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="camera-flash-symbolic.svg">../data/icons/hicolor/scalable/actions/camera-flash-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="tip-pressure-soft-symbolic.svg">../data/icons/hicolor/scalable/actions/tip-pressure-soft-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="sine-symbolic.svg">../data/icons/hicolor/scalable/actions/sine-symbolic.svg</file>
   </gresource>
 </gresources>
+

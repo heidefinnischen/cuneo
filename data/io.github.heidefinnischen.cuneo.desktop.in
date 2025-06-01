@@ -1,10 +1,10 @@
 [Desktop Entry]
 Name=Cuneo
 Exec=cuneo
-Icon=com.github.heidefinnischen.cuneo
+Icon=io.github.heidefinnischen.cuneo
 Terminal=false
 Type=Application
 Categories=Utility;
-Keywords=GTK;
+Keywords=Utility;Calculator;Conversion;Convert;Calculate;Converter;Calculation;
 StartupNotify=true
 DBusActivatable=true

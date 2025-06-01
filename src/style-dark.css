@@ -5,12 +5,22 @@
   outline-offset: -1px;
 }
 
+
+.yellow-ruler-pop > * {
+  background-color: #957500;
+  padding: 0;
+  /*outline: 1px solid @borders;   */       /* draws a visible border */
+  /*outline-offset: -2px;*/
+}
+
 .framed-button {
   box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+  border-radius: 9px;
 }
 
 .framed-button:hover {
   box-shadow: inset 0 0 0px rgba(255,255,255,0.1);
+  border-radius: 9px;
 }
 
 .smooth-transition {
@@ -18,4 +28,15 @@
   /* Test chalk color scheme:
   background-color: #214430;
   */
+}
+
+.yellow-ruler-button {
+}
+
+.dim-hover {
+  color: rgba(255,255,255,0.25);
+}
+
+.dim-hover:hover {
+  color: rgba(255,255,255,1);
 }

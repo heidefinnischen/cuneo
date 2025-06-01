@@ -1,31 +1,18 @@
-/*.no-left-b,
-.no-left-b > * {
-  border-bottom-left-radius: 0px;
-  border-top-left-radius: 0px;
-}
-
-.no-right-b,
-.no-right-b > * {
-  border-bottom-right-radius: 0px;
-  border-top-right-radius: 0px;
-}*/
-
 @define-color drag_color color-mix(in srgb, currentColor 15%, transparent);
+@define-color faux_box_color color-mix(in srgb, currentColor 10%, transparent);
 
 
 .drag-me-handle > * {
   background-color: @drag_color;
-  border-radius: 3px;
+  border-radius: 900px;
   font-size: 0px;
   padding: 0;
   margin: 0;
-  max-width: 6px;
   min-width: 6px;
   min-height: 6px;
-  max-height: 6px;
 }
 
-.equals {
+.equal-sign {
   font-size: 25px;
   font-weight: 400;
   padding-bottom: 3px;
@@ -34,7 +21,17 @@
 .yellow-ruler {
   background-color: #ffce00;
   transition: background-color 550ms ease;
-  /* border-bottom: 6px dashed rgba(0,0,0,0.5); */
+  /* border-bottom: 7px dashed rgba(0,0,0,0.5); */
+  /* border: 0px;
+  outline: 1px solid rgba(0,0,0,0.025);
+  outline-offset: -1px; */
+}
+
+
+.yellow-ruler-pop > * {
+  background-color: #ffce00;
+  padding: 0;
+  /* border-bottom: 7px dashed rgba(0,0,0,0.5); */
   /* border: 0px;
   outline: 1px solid rgba(0,0,0,0.025);
   outline-offset: -1px; */
@@ -50,8 +47,103 @@
 
 .framed-button {
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+  border-radius: 9px;
 }
 
 .framed-button:hover {
   box-shadow: inset 0 0 0px rgba(0,0,0,0.1);
+  border-radius: 9px;
+}
+
+
+.operator_buttons > * {
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+.test-tb-margins {
+  margin-top: -7px;
+  margin-bottom: -7px;
+}
+
+.add-anim-margins > * {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.offset-tb-margins {
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+.toggle-button {
+  min-height: 24px;
+  min-width: 24px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 1pt;
+  border-radius: 900px;
+}
+
+.toggle-button:checked {
+  background-color: var(--active-toggle-bg-color);
+  box-shadow: 0 1px 3px 1px RGB(0 0 6 / 7%),
+                    0 2px 7px 2px RGB(0 0 6 / 3%);
+
+}
+
+.toggle-box {
+  border-radius: 900px;
+  background-color: @faux_box_color ;
+  padding: 3px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+
+}
+
+.in-entry-button,
+.in-entry-button > * {
+  border-radius: 6px;
+}
+
+.flat-drop > * {
+  background-color: transparent;
+}
+
+
+/*.yellow-ruler-button:checked > * {
+  min-height: 24px;
+  max-height: 24px;
+  min-width: 24px;
+  max-width: 24px;
+  padding: 0px;
+  margin: 0px;
+  font-size: 1pt;
+  border-radius: 900px;
+  box-shadow: 0 1px 3px 1px RGB(0 0 6 / 7%),
+                    0 2px 7px 2px RGB(0 0 6 / 3%);
+  background-color: #ffce00;
+  transition: background-color 550ms ease;
+}*/
+
+.dim-hover {
+  color: rgba(0,0,0,0.33);
+
+}
+
+.dim-hover:hover {
+  color: rgba(0,0,0,1);
+}
+
+.entry-pad {
+  transition: padding 150ms ease-out;
+  padding-top: 20px;
+}
+
+.copy {
+  padding: 0;
+  min-width: 28px;
+  min-height: 28px;
 }

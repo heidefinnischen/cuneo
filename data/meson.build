@@ -1,8 +1,8 @@
 pkgdatadir = get_option('prefix') / get_option('datadir') / meson.project_name()
 
 desktop_file = i18n.merge_file(
-        input: 'com.github.heidefinnischen.cuneo.desktop.in',
-       output: 'com.github.heidefinnischen.cuneo.desktop',
+        input: 'io.github.heidefinnischen.cuneo.desktop.in',
+       output: 'io.github.heidefinnischen.cuneo.desktop',
          type: 'desktop',
        po_dir: '../po',
       install: true,
@@ -15,8 +15,8 @@ if desktop_utils.found()
 endif
 
 appstream_file = i18n.merge_file(
-        input: 'com.github.heidefinnischen.cuneo.metainfo.xml.in',
-       output: 'com.github.heidefinnischen.cuneo.metainfo.xml',
+        input: 'io.github.heidefinnischen.cuneo.metainfo.xml.in',
+       output: 'io.github.heidefinnischen.cuneo.metainfo.xml',
        po_dir: '../po',
       install: true,
   install_dir: get_option('datadir') / 'metainfo'
@@ -26,7 +26,7 @@ appstreamcli = find_program('appstreamcli', required: false, disabler: true)
 test('Validate appstream file', appstreamcli,
      args: ['validate', '--no-net', '--explain', appstream_file])
 
-install_data('com.github.heidefinnischen.cuneo.gschema.xml',
+install_data('io.github.heidefinnischen.cuneo.gschema.xml',
   install_dir: get_option('datadir') / 'glib-2.0' / 'schemas'
 )
 
@@ -46,8 +46,8 @@ gnome.compile_resources('data',
 service_conf = configuration_data()
 service_conf.set('bindir', get_option('prefix') / get_option('bindir'))
 configure_file(
-  input: 'com.github.heidefinnischen.cuneo.service.in',
-  output: 'com.github.heidefinnischen.cuneo.service',
+  input: 'io.github.heidefinnischen.cuneo.service.in',
+  output: 'io.github.heidefinnischen.cuneo.service',
   configuration: service_conf,
   install_dir: get_option('datadir') / 'dbus-1' / 'services'
 )

@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/com/github/heidefinnischen/cuneo">
-    <file preprocess="xml-stripblanks">icons/scalable/actions/horizontal-arrows-symbolic.svg</file>
-  </gresource>
-  <gresource prefix="/com/github/heidefinnischen/cuneo">
-    <file preprocess="xml-stripblanks">icons/scalable/actions/org.gnome.Calculator-symbolic.svg</file>
-  </gresource>
+  <gresource prefix="/io/github/heidefinnischen/cuneo">
+   </gresource>
 </gresources>

@@ -1,11 +1,10 @@
 {
-    "id" : "com.github.heidefinnischen.cuneo",
+    "id" : "io.github.heidefinnischen.cuneo",
     "runtime" : "org.gnome.Platform",
     "runtime-version" : "48",
     "sdk" : "org.gnome.Sdk",
     "command" : "cuneo",
     "finish-args" : [
-        "--share=network",
         "--share=ipc",
         "--socket=fallback-x11",
         "--device=dri",
@@ -23,6 +22,20 @@
         "*.a"
     ],
     "modules" : [
+    	{
+	    "name": "python3-asteval",
+	    "buildsystem": "simple",
+	    "build-commands": [
+		"pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"asteval\" --no-build-isolation"
+	    ],
+	    "sources": [
+		{
+		    "type": "file",
+		    "url": "https://files.pythonhosted.org/packages/13/ac/19dbba27e891f39feb4170b884da449ee2699ef4ebb88eefeda364bbbbcf/asteval-1.0.6-py3-none-any.whl",
+		    "sha256": "5e119ed306e39199fd99c881cea0e306b3f3807f050c9be79829fe274c6378dc"
+		}
+	    ]
+	},
         {
             "name" : "cuneo",
             "builddir" : true,

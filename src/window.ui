@@ -4,83 +4,246 @@
   <requires lib="Adw" version="1.0"/>
   <template class="CuneoWindow" parent="AdwApplicationWindow">
     <property name="title" translatable="yes"></property>
-    <property name="default-width">500</property>
-    <property name="default-height">30</property>
+    <property name="default-width">550</property>
+    <property name="default-height">60</property>
     <property name="content">
 
 
 <!-- Header Bar and Toolbar Start -->
       <object class="AdwToolbarView">
         <child type="top">
-          <object class="AdwHeaderBar">
+          <object class="AdwHeaderBar" id="headerbar">
+            <style>
+              <class name="test-tb-margins"/>
+            </style>
 
 
-<!-- Toggle Group Start [CHECKED] -->
             <child type="start">
-              <object class="AdwToggleGroup" id="mode_toggle">
-                <property name="margin-end">0</property>
-                <property name="height-request">40</property>
-                <property name="orientation">horizontal</property>
-                <style><class name="round"/><class name="toggle-buttonx"/></style>
-                <property name="active-name">calculate</property>
+              <object class="GtkBox">
                 <child>
-                  <object class="AdwToggle">
-                    <property name="icon-name">accessories-calculator-symbolic</property>
-                    <property name="tooltip" translatable="yes">Calculate</property>
-                    <property name="name">calculate</property>
+                  <object class="GtkBox">
+                    <child>
+                      <object class="GtkBox" id="window_handle">
+                        <property name="orientation">vertical</property>
+                        <property name="margin-start">2</property>
+                        <property name="margin-end">2</property>
+                        <property name="spacing">4</property>
+                        <property name="valign">center</property>
+                        <style><class name="drag-me-handle"/></style>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label"></property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label"></property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label"></property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label"></property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
                   </object>
                 </child>
                 <child>
-                  <object class="AdwToggle">
-                    <property name="icon-name">network-transmit-receive-symbolic</property>
-                    <property name="tooltip" translatable="yes">Convert</property>
-                    <property name="name">convert</property>
+                  <object class="GtkBox" id="menu_button">
+                    <child>
+                      <object class="GtkMenuButton">
+                        <property name="primary">True</property>
+                        <property name="margin-start">6</property>
+                        <property name="margin-end">6</property>
+                        <style>
+                          <class name="offset-tb-margins"/>
+                        </style>
+                        <property name="height-request">70</property>
+                        <property name="icon-name">open-menu-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Main Menu</property>
+                        <property name="menu-model">primary_menu</property>
+                        <style><class name="yellow-ruler-pop-double"/></style>
+                      </object>
+                    </child>
                   </object>
                 </child>
-                <signal name="notify::active" handler="on_toggle_changed" swapped="no"/>
               </object>
             </child>
+
+<!-- Toggle Group Start [CHECKED] -->
+            <child>
+              <object class="GtkBox">
+                <child>
+                  <object class="GtkBox">
+                    <style><class name="toggle-box"/></style>
+                    <property name="orientation">vertical</property>
+                    <property name="valign">center</property>
+                    <property name="margin-top">2</property>
+                    <property name="margin-bottom">2</property>
+                    <property name="margin-end">6</property>
+                    <property name="spacing">2</property>
+                    <child>
+                      <object class="GtkToggleButton" id="calc_group">
+                        <style><class name="toggle-button"/><class name="flat"/></style>
+                        <signal name="toggled" handler="on_toggle_toggled" swapped="no"/>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="icon-name">calculator-symbolic</property>
+                            <property name="pixel-size">16</property>
+                          </object>
+                        </child>
+
+
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkToggleButton" id="conv_group">
+                        <style><class name="toggle-button"/><class name="flat"/></style>
+                        <signal name="toggled" handler="on_toggle_toggled" swapped="no"/>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="icon-name">horizontal-arrows-slim-symbolic</property>
+                            <property name="pixel-size">16</property>
+                          </object>
+                        </child>
+
+                      </object>
+                    </child>
+                  </object>
+                </child>
+
+              </object>
+            </child>
+
 <!-- Toggle Group End -->
+
+
 
 
 
 <!-- GtkStack (containing: Calculate, Convert) Start -->
             <child type="title">
               <object class="GtkStack" id="mode_stack">
-                <property name="transition-type">slide-left-right</property>
+                <property name="hexpand">true</property>
+                <style>
+                  <class name="add-anim-margins"/>
+                </style>
+                <property name="transition-type">crossfade</property> <!-- FALLBACK -->
                 <property name="transition-duration">450</property>
 
 
 <!-- Calculate Stack Start -->
+<!-- NOTE: Add button for Root symbol and others in a dropdown here -->
                 <child>
                   <object class="GtkStackPage">
                     <property name="name">calculate</property>
                     <property name="child">
                       <object class="GtkBox" id="calculate_box">
-                        <property name="margin-bottom">0</property>
-                        <property name="margin-start">10</property>
-                        <property name="margin-end">6</property>
-                        <property name="spacing">12</property>
+                        <property name="hexpand">true</property>
+                        <property name="spacing">0</property>
+                        <!--<child>
+                          <object class="GtkMenuButton" id="xoperator_menu">
+                            <style><class name="flat"/><class name="framed-button"/></style>
+                            <property name="margin-end">6</property>
+                            <property name="icon-name">view-more-symbolic</property>
+                            <property name="popover">plain_popover</property>
+                          </object>
+                        </child>-->
+
+
+
+
                         <child>
-                          <object class="GtkEntry" id="calc_entry">
-                            <property name="placeholder-text">Calculate</property>
-                            <property name="hexpand">true</property>
-                            <signal name="changed" handler="on_entry_changed" swapped="no"/>
+                          <object class="GtkOverlay">
+                            <child>
+                              <object class="GtkEntry" id="calc_entry">
+                                <property name="hexpand">true</property>
+                                <property name="placeholder-text" translatable="yes">Calculate</property>
+                                <style><class name="heading"/><class name="add-pad"/></style>
+                                <signal name="changed" handler="on_entry_changed" swapped="no"/>
+                              </object>
+                            </child>
+                            <child type="overlay">
+                                <object class="GtkBox" id="calc_equation_box">
+                                  <property name="halign">start</property>
+                                  <child>
+                                    <object class="GtkLabel" id="calc_equation">
+                                      <property name="can-target">false</property>
+                                      <property name="margin-end">10</property>
+                                      <property name="visible">false</property>
+                                      <property name="label">=</property>
+                                      <style><class name="heading"/><class name="dimmed"/></style>
+                                    </object>
+                                  </child>
+                                  <child>
+                                    <object class="GtkLabel" id="calc_result">
+                                      <property name="label" translatable="yes"></property>
+                                      <property name="can-target">true</property>
+                                      <property name="margin-end">4</property>
+                                      <property name="selectable">true</property>
+                                      <style><class name="heading"/></style>
+                                      <signal name="notify::has-focus" handler="on_entry_focus" swapped="no"/>
+                                    </object>
+                                  </child>
+                                  <child>
+                                    <object class="GtkButton" id="copy_button">
+                                      <style><class name="flat"/><class name="dim-hover"/><class name="copy"/></style>
+                                      <property name="visible">false</property>
+                                      <property name="tooltip-text" translatable="yes">Copy to clipboard</property>
+                                      <property name="focus-on-click">false</property>
+                                      <property name="valign">center</property>
+                                      <signal name="clicked" handler="on_copy_button_clicked" swapped="no"/>
+                                      <child>
+                                        <object class="GtkImage">
+                                          <property name="icon-name">edit-copy-symbolic</property>
+                                        </object>
+                                      </child>
+                                    </object>
+                                  </child>
+                                </object>
+                            </child>
+                            <child type="overlay">
+                                <object class="GtkBox">
+                                  <property name="halign">end</property>
+                                  <child>
+                                    <object class="GtkMenuButton" id="operator_menu">
+                                      <style><class name="in-entry-button"/><class name="dim-hover"/></style>
+                                      <property name="vexpand">true</property>
+                                      <property name="halign">end</property>
+                                      <property name="margin-end">4</property>
+                                      <property name="margin-top">4</property>
+                                      <property name="margin-bottom">4</property>
+                                      <property name="icon-name">view-more-symbolic</property>
+                                      <property name="popover">plain_popover</property>
+                                    </object>
+                                  </child>
+                                </object>
+                            </child>
+                            <child type="overlay">
+                              <object class="GtkBox">
+                                <property name="margin-start">9</property>
+                                <property name="margin-top">8</property>
+                                <property name="valign">start</property>
+                                <property name="halign">start</property>
+                                <child>
+                                  <object class="GtkLabel" id="expression_button">
+                                    <property name="visible">false</property>
+                                    <property name="label"></property>
+                                    <property name="selectable">true</property>
+                                    <style><class name="caption"/><class name="dimmed"/></style>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
                           </object>
                         </child>
-                        <child>
-                          <object class="GtkLabel">
-                            <property name="label">=</property>
-                            <property name="valign">top</property>
-                            <style><class name="equals"/></style>
-                          </object>
-                        </child>
-                        <child>
-                          <object class="GtkEntry" id="calc_result">
-                            <property name="placeholder-text">Result</property>
-                            <property name="hexpand">true</property>
-                          </object>
-                        </child>
+
                       </object>
                     </property>
                   </object>
@@ -95,44 +258,83 @@
                     <property name="child">
                       <object class="GtkBox" id="convert_box">
                         <property name="orientation">horizontal</property>
-                        <property name="margin-start">10</property>
-                        <property name="margin-end">6</property>
-                        <!-- <property name="margin-top">10</property>
-                        <property name="margin-bottom">10</property> -->
                         <property name="spacing">0</property>
                         <child>
                           <object class="GtkBox">
                             <property name="orientation">horizontal</property>
                             <property name="spacing">0</property>
+
+
+
                             <child>
-                              <object class="GtkDropDown" id="type_dropdown">
-                                <property name="margin-end">12</property>
-                                <property name="selected">0</property>
+                              <object class="GtkMenuButton" id="unit_type_button">
+                                <property name="popover">unit_type_popover</property>
+                                <style><class name="framed-button"/><class name="flat"/></style>
+                                <property name="width-request">40</property>
+                                <property name="margin-end">6</property>
+                                <property name="vexpand">true</property>
+                                <child>
+                                  <object class="GtkBox">
+                                    <property name="orientation">vertical</property>
+                                    <child>
+                                      <object class="GtkImage" id="unit_type_icon">
+                                        <property name="vexpand">true</property>
+                                        <property name="icon-name">item-missing-symbolic</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkImage">
+                                        <property name="valign">end</property>
+                                        <property name="icon-name">pan-down-symbolic</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
                               </object>
                             </child>
+
+
+
                           </object>
                         </child>
                         <child>
-                          <object class="GtkBox">
-                            <property name="orientation">horizontal</property>
-                            <property name="hexpand">true</property>
-                            <property name="spacing">0</property>
-                            <style><class name="linked"/></style>
+                          <object class="GtkOverlay">
+                            <property name="margin-end">6</property>
                             <child>
                               <object class="GtkEntry" id="from_unit_entry">
-                                <property name="placeholder-text">Convert</property>
+                                <property name="placeholder-text" translatable="yes">Convert</property>
                                 <property name="hexpand">true</property>
-                                <property name="width-request">80</property>
+                                <property name="width-request">160</property>
                                 <property name="halign">fill</property>
                                 <!-- <signal name="changed" handler="on_entry_changed" swapped="no"/> -->
                                 <signal name="changed" handler="on_convert_entry_changed" swapped="no"/>
                               </object>
                             </child>
-                            <child>
-                              <object class="GtkDropDown" id="from_unit">
-                                <signal name="notify::selected" handler="on_from_unit_changed" swapped="no"/>
-                                <property name="halign">fill</property>
-                                <property name="margin-end">6</property>
+                            <child type="overlay">
+                              <object class="GtkMenuButton" id="from_unit_button">
+                                <property name="popover">from_unit_popover</property>
+                                <style><class name="in-entry-button"/><class name="flat"/></style>
+                                <property name="margin-end">4</property>
+                                <property name="margin-top">4</property>
+                                <property name="margin-bottom">4</property>
+                                <property name="vexpand">true</property>
+                                <property name="halign">end</property>
+                                <child>
+                                  <object class="GtkBox">
+                                    <property name="orientation">horizontal</property>
+                                    <property name="spacing">3</property>
+                                    <child>
+                                      <object class="GtkLabel" id="from_unit_label">
+                                        <property name="label">x</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkImage">
+                                        <property name="icon-name">pan-down-symbolic</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
                               </object>
                             </child>
                           </object>
@@ -146,19 +348,43 @@
                           </object>
                         </child>
                         <child>
-                          <object class="GtkBox">
+                          <object class="GtkOverlay">
+                            <property name="margin-end">0</property>
                             <property name="hexpand">true</property>
-                            <style><class name="linked"/></style>
                             <child>
                               <object class="GtkEntry" id="to_unit_entry">
-                                <property name="placeholder-text">Result</property>
-                                <property name="width-request">80</property>
+                                <property name="placeholder-text" translatable="yes">Result</property>
+                                <property name="width-request">160</property>
                                 <property name="hexpand">true</property>
+                                <property name="editable">false</property>
+                                <signal name="notify::has-focus" handler="on_entry_focus" swapped="no"/>
                               </object>
                             </child>
-                            <child>
-                              <object class="GtkDropDown" id="to_unit">
-                                <signal name="notify::selected" handler="on_from_unit_changed" swapped="no"/>
+                            <child type="overlay">
+                              <object class="GtkMenuButton" id="to_unit_button">
+                                <property name="popover">to_unit_popover</property>
+                                <style><class name="in-entry-button"/><class name="flat"/></style>
+                                <property name="margin-end">4</property>
+                                <property name="margin-top">4</property>
+                                <property name="margin-bottom">4</property>
+                                <property name="vexpand">true</property>
+                                <property name="halign">end</property>
+                                <child>
+                                  <object class="GtkBox">
+                                    <property name="orientation">horizontal</property>
+                                    <property name="spacing">3</property>
+                                    <child>
+                                      <object class="GtkLabel" id="to_unit_label">
+                                        <property name="label">x</property>
+                                      </object>
+                                    </child>
+                                    <child>
+                                      <object class="GtkImage">
+                                        <property name="icon-name">pan-down-symbolic</property>
+                                      </object>
+                                    </child>
+                                  </object>
+                                </child>
                               </object>
                             </child>
                           </object>
@@ -175,58 +401,7 @@
 
 
 <!-- End Start -->
-            <child type="end">
-              <object class="GtkBox">
 
-
-                <child>
-                  <object class="GtkMenuButton">
-                    <property name="primary">True</property>
-                    <property name="icon-name">open-menu-symbolic</property>
-                    <property name="margin-start">0</property>
-                    <property name="tooltip-text" translatable="yes">Main Menu</property>
-                    <property name="menu-model">primary_menu</property>
-                  </object>
-                </child>
-
-
-<!-- Drag Me Handle Start -->
-                <child>
-                  <object class="GtkBox">
-                    <property name="orientation">vertical</property>
-                    <property name="margin-top">8</property>
-                    <property name="margin-bottom">8</property>
-                    <property name="margin-start">8</property>
-                    <property name="margin-end">4</property>
-                    <property name="spacing">4</property>
-                    <style><class name="drag-me-handle"/></style>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="label"></property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="label"></property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="label"></property>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="GtkLabel">
-                        <property name="label"></property>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-<!-- Drag Me Handle End -->
-
-
-              </object>
-            </child>
 <!-- End End -->
 
           </object>
@@ -238,17 +413,144 @@
   </template>
 
 
+  <object class="GtkPopover" id="plain_popover">
+    <property name="has-arrow">true</property>
+    <property name="name">plain_popover</property>
+    <property name="child">
+      <object class="GtkBox" id="plain-popover-box">
+        <property name="name">plain-popover-box</property>
+        <child>
+          <object class="GtkGrid">
+            <property name="column-spacing">8</property>
+            <style><class name="operator_buttons"/></style>
+            <child>
+              <object class="GtkButton">
+                <property name="label">√</property>
+                <style><class name="operator_buttons"/></style>
+                <signal name="clicked" handler="on_btn_sqrt_clicked" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="label">π</property>
+                <signal name="clicked" handler="on_btn_pi_clicked" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="label">sin</property>
+                <signal name="clicked" handler="on_btn_sin_clicked" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="label">cos</property>
+                <signal name="clicked" handler="on_btn_cos_clicked" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="label">tan</property>
+                <signal name="clicked" handler="on_btn_tan_clicked" swapped="no"/>
+              </object>
+            </child>
+            <child>
+              <object class="GtkButton">
+                <property name="label">log</property>
+                <signal name="clicked" handler="on_btn_log_clicked" swapped="no"/>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </property>
+  </object>
+
+  <object class="GtkPopover" id="unit_type_popover">
+    <property name="halign">end</property>
+    <property name="has-arrow">false</property>
+    <style><class name="yellow-ruler-pop"/></style>
+    <child>
+      <object class="GtkBox">
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="hscrollbar-policy">never</property>
+            <property name="vscrollbar-policy">automatic</property>
+            <property name="propagate-natural-height">true</property>
+            <child>
+              <object class="GtkBox" id="unit_type_box">
+                <property name="margin-end"   >10</property>
+                <property name="margin-start" >10</property>
+                <property name="margin-top"   >10</property>
+                <property name="margin-bottom">10</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">4</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+
+  <object class="GtkPopover" id="from_unit_popover">
+    <property name="halign">end</property>
+    <property name="has-arrow">false</property>
+    <style><class name="yellow-ruler-pop"/></style>
+    <child>
+      <object class="GtkBox">
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="hscrollbar-policy">never</property>
+            <property name="vscrollbar-policy">automatic</property>
+            <property name="propagate-natural-height">true</property>
+            <child>
+              <object class="GtkBox" id="from_unit_box">
+                <property name="margin-end"   >10</property>
+                <property name="margin-start" >10</property>
+                <property name="margin-top"   >10</property>
+                <property name="margin-bottom">10</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">4</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+
+  <object class="GtkPopover" id="to_unit_popover">
+    <property name="halign">end</property>
+    <property name="has-arrow">false</property>
+    <style><class name="yellow-ruler-pop"/></style>
+    <child>
+      <object class="GtkBox">
+        <child>
+          <object class="GtkScrolledWindow">
+            <property name="hscrollbar-policy">never</property>
+            <property name="vscrollbar-policy">automatic</property>
+            <property name="propagate-natural-height">true</property>
+            <child>
+              <object class="GtkBox" id="to_unit_box">
+                <property name="margin-end"   >10</property>
+                <property name="margin-start" >10</property>
+                <property name="margin-top"   >10</property>
+                <property name="margin-bottom">10</property>
+                <property name="orientation">vertical</property>
+                <property name="spacing">4</property>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+
+
 
   <menu id="primary_menu">
     <section>
-      <item>
-        <attribute name="label" translatable="yes">_Scratchpad</attribute>
-        <attribute name="action"></attribute>
-      </item>
-      <item>
-        <attribute name="label" translatable="yes">_Preferences</attribute>
-        <attribute name="action">app.preferences</attribute>
-      </item>
       <item>
         <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
         <attribute name="action">win.show-help-overlay</attribute>
@@ -260,5 +562,6 @@
     </section>
   </menu>
 </interface>
+
 
 

@@ -1,4 +1,4 @@
-application_id = 'com.github.heidefinnischen.cuneo'
+application_id = 'io.github.heidefinnischen.cuneo'
 
 scalable_dir = 'hicolor' / 'scalable' / 'apps'
 install_data(

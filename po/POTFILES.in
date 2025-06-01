@@ -1,8 +1,11 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
-data/com.github.heidefinnischen.cuneo.desktop.in
-data/com.github.heidefinnischen.cuneo.metainfo.xml.in
-data/com.github.heidefinnischen.cuneo.gschema.xml
+data/io.github.heidefinnischen.cuneo.desktop.in
+data/io.github.heidefinnischen.cuneo.metainfo.xml.in
+data/io.github.heidefinnischen.cuneo.gschema.xml
 src/main.py
 src/window.py
 src/window.ui
+src/units.py
+src/ui.py
+src/gtk/help-overlay.ui

@@ -11,6 +11,13 @@
             <property name="title" translatable="yes" context="shortcut window">General</property>
             <child>
               <object class="GtkShortcutsShortcut">
+                <property name="action-name">win.switch_mode</property>
+                <property name="title" translatable="yes">Switch Mode</property>
+                <property name="accelerator">&lt;Ctrl&gt;Tab</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes" context="shortcut window">Show Shortcuts</property>
                 <property name="action-name">win.show-help-overlay</property>
               </object>
@@ -19,6 +26,64 @@
               <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes" context="shortcut window">Quit</property>
                 <property name="action-name">app.quit</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="title" translatable="yes">Editing</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">Select All</property>
+                <property name="accelerator">&lt;Ctrl&gt;A</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">Cut</property>
+                <property name="accelerator">&lt;Ctrl&gt;X</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">Copy</property>
+                <property name="accelerator">&lt;Ctrl&gt;C</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">Paste</property>
+                <property name="accelerator">&lt;Ctrl&gt;V</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">Undo</property>
+                <property name="accelerator">&lt;Ctrl&gt;Z</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">Redo</property>
+                <property name="accelerator">&lt;Ctrl&gt;&lt;Shift&gt;Z</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="title" translatable="yes" context="shortcut window">Insert</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">+ (Plus)</property>
+                <property name="accelerator">+</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">√() (Square Root)</property>
+                <property name="accelerator">&lt;Ctrl&gt;R</property>
               </object>
             </child>
           </object>
