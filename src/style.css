@@ -147,11 +147,3 @@
   min-width: 28px;
   min-height: 28px;
 }
-
-.titlebutton > * {
-    padding: 4px;
-    min-height: 0;
-    min-width: 0;
-    color: red;
-    background-color: green;
-}
