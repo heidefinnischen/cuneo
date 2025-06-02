@@ -13,9 +13,13 @@ Cuneo is a simple and straightforward app that lets you calculate and convert an
 
 Calculate Mode Light | Calculate Mode Dark
 :-------------------:|:-------------------:
-<img src="https://github.com/heidefinnischen/resolutionary/blob/239a8ceb59640c2689fa2409b7861c415ef95ebe/data/screenshots/sample-light.png" width="550" /> | <img src="https://github.com/heidefinnischen/resolutionary/blob/239a8ceb59640c2689fa2409b7861c415ef95ebe/data/screenshots/sample-dark.png" width="550" />
+<img src="https://github.com/heidefinnischen/cuneo/blob/5eeb1470c64b6e6dd4b626ca0fcc8f8c83590021/data/Resources/calculate-light.png" width="550" /> | <img src="https://github.com/heidefinnischen/cuneo/blob/5eeb1470c64b6e6dd4b626ca0fcc8f8c83590021/data/Resources/calculate-dark.png" width="550" />
+
+<br>
+
 Convert Mode Light | Convert Mode Dark
-<img src="https://github.com/heidefinnischen/resolutionary/blob/239a8ceb59640c2689fa2409b7861c415ef95ebe/data/screenshots/sample-light.png" width="550" /> | <img src="https://github.com/heidefinnischen/resolutionary/blob/239a8ceb59640c2689fa2409b7861c415ef95ebe/data/screenshots/sample-dark.png" width="550" />
+:-------------------:|:-------------------:
+<img src="https://github.com/heidefinnischen/cuneo/blob/5eeb1470c64b6e6dd4b626ca0fcc8f8c83590021/data/Resources/convert-light.png" width="550" /> | <img src="https://github.com/heidefinnischen/cuneo/blob/5eeb1470c64b6e6dd4b626ca0fcc8f8c83590021/data/Resources/convert-dark.png" width="550" />
 
 <br><br><br>
 
