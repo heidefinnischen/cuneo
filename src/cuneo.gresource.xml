@@ -2,6 +2,9 @@
 <gresources>
   <gresource prefix="/io/github/heidefinnischen/cuneo">
     <file preprocess="xml-stripblanks">window.ui</file>
+    <file preprocess="xml-stripblanks">conversion-stack.ui</file>
+    <file preprocess="xml-stripblanks">calculation-stack.ui</file>
+    <file preprocess="xml-stripblanks">history-window.ui</file>
     <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
     <file>style.css</file>
     <file>style-dark.css</file>
@@ -22,6 +25,8 @@
     <file preprocess="xml-stripblanks" alias="camera-flash-symbolic.svg">../data/icons/hicolor/scalable/actions/camera-flash-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="tip-pressure-soft-symbolic.svg">../data/icons/hicolor/scalable/actions/tip-pressure-soft-symbolic.svg</file>
     <file preprocess="xml-stripblanks" alias="sine-symbolic.svg">../data/icons/hicolor/scalable/actions/sine-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="history-undo-symbolic.svg">../data/icons/hicolor/scalable/actions/history-undo-symbolic.svg</file>
+    <file preprocess="xml-stripblanks" alias="arrow-into-box-flipped-symbolic.svg">../data/icons/hicolor/scalable/actions/arrow-into-box-flipped-symbolic.svg</file>
   </gresource>
 </gresources>
 

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="CalculationStack" parent="GtkBox">
+    <object class="GtkBox" id="root_box">
+      <child>
+        <object class="GtkBox" id="calculate_box">
+          <property name="hexpand">true</property>
+          <property name="spacing">0</property>
+          <!--<child>
+            <object class="GtkMenuButton" id="xoperator_menu">
+              <style><class name="flat"/><class name="framed-button"/></style>
+              <property name="margin-end">6</property>
+              <property name="icon-name">view-more-symbolic</property>
+              <property name="popover">plain_popover</property>
+            </object>
+          </child>-->
+
+
+
+
+          <child>
+            <object class="GtkOverlay">
+              <child>
+                <object class="GtkEntry" id="calc_entry">
+                  <property name="hexpand">true</property>
+                  <property name="placeholder-text" translatable="yes">Calculate</property>
+                  <style><class name="heading"/><class name="add-pad"/></style>
+                  <signal name="changed" handler="on_entry_changed" swapped="no"/>
+                </object>
+              </child>
+              <child type="overlay">
+                  <object class="GtkBox" id="calc_equation_box">
+                    <property name="halign">start</property>
+                    <child>
+                      <object class="GtkLabel" id="calc_equation">
+                        <property name="can-target">false</property>
+                        <property name="margin-end">10</property>
+                        <property name="visible">false</property>
+                        <property name="label">=</property>
+                        <style><class name="heading"/><class name="dimmed"/></style>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="calc_result">
+                        <property name="label" translatable="yes"></property>
+                        <property name="can-target">true</property>
+                        <property name="margin-end">4</property>
+                        <property name="selectable">true</property>
+                        <style><class name="heading"/></style>
+                        <signal name="notify::has-focus" handler="on_entry_focus" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="copy_button">
+                        <style><class name="flat"/><class name="dim-hover"/><class name="copy"/></style>
+                        <property name="visible">false</property>
+                        <property name="tooltip-text" translatable="yes">Copy to clipboard</property>
+                        <property name="focus-on-click">false</property>
+                        <property name="valign">center</property>
+                        <signal name="clicked" handler="on_copy_button_clicked" swapped="no"/>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="icon-name">edit-copy-symbolic</property>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+              </child>
+              <child type="overlay">
+                  <object class="GtkBox">
+                    <property name="halign">end</property>
+                    <child>
+                      <object class="GtkMenuButton" id="operator_menu">
+                        <style><class name="in-entry-button"/><class name="dim-hover"/></style>
+                        <property name="vexpand">true</property>
+                        <property name="halign">end</property>
+                        <property name="margin-end">4</property>
+                        <property name="margin-top">4</property>
+                        <property name="margin-bottom">4</property>
+                        <property name="icon-name">view-more-symbolic</property>
+                        <property name="popover">plain_popover</property>
+                      </object>
+                    </child>
+                  </object>
+              </child>
+              <child type="overlay">
+                <object class="GtkBox">
+                  <property name="margin-start">9</property>
+                  <property name="margin-top">8</property>
+                  <property name="valign">start</property>
+                  <property name="halign">start</property>
+                  <child>
+                    <object class="GtkLabel" id="expression_button">
+                      <property name="visible">false</property>
+                      <property name="label"></property>
+                      <property name="selectable">true</property>
+                      <style><class name="caption"/><class name="dimmed"/></style>
+                    </object>
+                  </child>
+                </object>
+              </child>
+            </object>
+          </child>
+
+        </object>
+      </child>
+    </object>
+
+
+
+    <object class="GtkPopover" id="plain_popover">
+      <property name="has-arrow">true</property>
+      <property name="name">plain_popover</property>
+      <property name="child">
+        <object class="GtkBox" id="plain-popover-box">
+          <property name="name">plain-popover-box</property>
+          <child>
+            <object class="GtkGrid">
+              <property name="column-spacing">8</property>
+              <style><class name="operator_buttons"/></style>
+              <child>
+                <object class="GtkButton">
+                  <property name="label">√</property>
+                  <style><class name="operator_buttons"/></style>
+                  <signal name="clicked" handler="on_btn_sqrt_clicked" swapped="no"/>
+                </object>
+              </child>
+              <child>
+                <object class="GtkButton">
+                  <property name="label">π</property>
+                  <signal name="clicked" handler="on_btn_pi_clicked" swapped="no"/>
+                </object>
+              </child>
+              <child>
+                <object class="GtkButton">
+                  <property name="label">sin</property>
+                  <signal name="clicked" handler="on_btn_sin_clicked" swapped="no"/>
+                </object>
+              </child>
+              <child>
+                <object class="GtkButton">
+                  <property name="label">cos</property>
+                  <signal name="clicked" handler="on_btn_cos_clicked" swapped="no"/>
+                </object>
+              </child>
+              <child>
+                <object class="GtkButton">
+                  <property name="label">tan</property>
+                  <signal name="clicked" handler="on_btn_tan_clicked" swapped="no"/>
+                </object>
+              </child>
+              <child>
+                <object class="GtkButton">
+                  <property name="label">log</property>
+                  <signal name="clicked" handler="on_btn_log_clicked" swapped="no"/>
+                </object>
+              </child>
+            </object>
+          </child>
+        </object>
+      </property>
+    </object>
+
+
+
+
+  </template>
+</interface>
+
+
+
+

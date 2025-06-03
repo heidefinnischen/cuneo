@@ -18,6 +18,13 @@
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
+                <property name="action-name">win.show_history</property>
+                <property name="title" translatable="yes">Show History</property>
+                <property name="accelerator">&lt;Ctrl&gt;H</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes" context="shortcut window">Show Shortcuts</property>
                 <property name="action-name">win.show-help-overlay</property>
               </object>

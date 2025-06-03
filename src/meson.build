@@ -34,7 +34,9 @@ cuneo_sources = [
   'conversion.py',
   'token.py',
   'magic.py',
-  'ui.py'
+  'history_window.py',
+  'conversion_stack.py',
+  'calculation_stack.py'
 ]
 
 

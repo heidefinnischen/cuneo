@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <requires lib="Adw" version="1.0"/>
+  <template class="ConversionStack" parent="GtkBox">
+    <object class="GtkBox" id="root_box">
+      <child>
+        <object class="GtkBox">
+          <property name="orientation">horizontal</property>
+          <property name="spacing">0</property>
+
+          <child>
+            <object class="GtkMenuButton" id="unit_type_button">
+              <property name="popover">unit_type_popover</property>
+              <style><class name="framed-button"/><class name="flat"/></style>
+              <property name="width-request">40</property>
+              <property name="margin-end">6</property>
+              <property name="vexpand">true</property>
+              <child>
+                <object class="GtkBox">
+                  <property name="orientation">vertical</property>
+                  <child>
+                    <object class="GtkImage" id="unit_type_icon">
+                      <property name="vexpand">true</property>
+                      <property name="icon-name">item-missing-symbolic</property>
+                    </object>
+                  </child>
+                  <child>
+                    <object class="GtkImage">
+                      <property name="valign">end</property>
+                      <property name="icon-name">pan-down-symbolic</property>
+                    </object>
+                  </child>
+                </object>
+              </child>
+            </object>
+          </child>
+        </object>
+      </child>
+
+      <child>
+        <object class="GtkOverlay">
+          <property name="margin-end">6</property>
+          <child>
+            <object class="GtkEntry" id="from_unit_entry">
+              <property name="placeholder-text" translatable="yes">Convert</property>
+              <property name="hexpand">true</property>
+              <property name="width-request">160</property>
+              <property name="halign">fill</property>
+              <!-- <signal name="changed" handler="on_entry_changed" swapped="no"/> -->
+              <signal name="changed" handler="on_convert_entry_changed" swapped="no"/>
+            </object>
+          </child>
+          <child type="overlay">
+            <object class="GtkMenuButton" id="from_unit_button">
+              <property name="popover">from_unit_popover</property>
+              <style><class name="in-entry-button"/><class name="flat"/></style>
+              <property name="margin-end">4</property>
+              <property name="margin-top">4</property>
+              <property name="margin-bottom">4</property>
+              <property name="vexpand">true</property>
+              <property name="halign">end</property>
+              <child>
+                <object class="GtkBox">
+                  <property name="orientation">horizontal</property>
+                  <property name="spacing">3</property>
+                  <child>
+                    <object class="GtkLabel" id="from_unit_label">
+                      <property name="label">x</property>
+                    </object>
+                  </child>
+                  <child>
+                    <object class="GtkImage">
+                      <property name="icon-name">pan-down-symbolic</property>
+                    </object>
+                  </child>
+                </object>
+              </child>
+            </object>
+          </child>
+        </object>
+      </child>
+      <child>
+        <object class="GtkButton">
+          <property name="margin-end">6</property>
+          <property name="icon-name">object-flip-horizontal-symbolic</property>
+          <signal name="clicked" handler="on_invert_units_clicked" swapped="no"/>
+          <style><class name="flat"/><class name="framed-button"/></style>
+        </object>
+      </child>
+      <child>
+        <object class="GtkOverlay">
+          <property name="margin-end">0</property>
+          <property name="hexpand">true</property>
+          <child>
+            <object class="GtkEntry" id="to_unit_entry">
+              <property name="placeholder-text" translatable="yes">Result</property>
+              <property name="width-request">160</property>
+              <property name="hexpand">true</property>
+              <property name="editable">false</property>
+              <signal name="notify::has-focus" handler="on_entry_focus" swapped="no"/>
+            </object>
+          </child>
+          <child type="overlay">
+            <object class="GtkMenuButton" id="to_unit_button">
+              <property name="popover">to_unit_popover</property>
+              <style><class name="in-entry-button"/><class name="flat"/></style>
+              <property name="margin-end">4</property>
+              <property name="margin-top">4</property>
+              <property name="margin-bottom">4</property>
+              <property name="vexpand">true</property>
+              <property name="halign">end</property>
+              <child>
+                <object class="GtkBox">
+                  <property name="orientation">horizontal</property>
+                  <property name="spacing">3</property>
+                  <child>
+                    <object class="GtkLabel" id="to_unit_label">
+                      <property name="label">x</property>
+                    </object>
+                  </child>
+                  <child>
+                    <object class="GtkImage">
+                      <property name="icon-name">pan-down-symbolic</property>
+                    </object>
+                  </child>
+                </object>
+              </child>
+            </object>
+          </child>
+        </object>
+      </child>
+    </object>
+
+
+    <object class="GtkPopover" id="unit_type_popover">
+      <property name="halign">end</property>
+      <property name="has-arrow">false</property>
+      <style><class name="yellow-ruler-pop"/></style>
+      <child>
+        <object class="GtkBox">
+          <child>
+            <object class="GtkScrolledWindow">
+              <property name="hscrollbar-policy">never</property>
+              <property name="vscrollbar-policy">automatic</property>
+              <property name="propagate-natural-height">true</property>
+              <child>
+                <object class="GtkBox" id="unit_type_box">
+                  <property name="margin-end"   >10</property>
+                  <property name="margin-start" >10</property>
+                  <property name="margin-top"   >10</property>
+                  <property name="margin-bottom">10</property>
+                  <property name="orientation">vertical</property>
+                  <property name="spacing">4</property>
+                </object>
+              </child>
+            </object>
+          </child>
+        </object>
+      </child>
+    </object>
+
+    <object class="GtkPopover" id="from_unit_popover">
+      <property name="halign">end</property>
+      <property name="has-arrow">false</property>
+      <style><class name="yellow-ruler-pop"/></style>
+      <child>
+        <object class="GtkBox">
+          <child>
+            <object class="GtkScrolledWindow">
+              <property name="hscrollbar-policy">never</property>
+              <property name="vscrollbar-policy">automatic</property>
+              <property name="propagate-natural-height">true</property>
+              <child>
+                <object class="GtkBox" id="from_unit_box">
+                  <property name="margin-end"   >10</property>
+                  <property name="margin-start" >10</property>
+                  <property name="margin-top"   >10</property>
+                  <property name="margin-bottom">10</property>
+                  <property name="orientation">vertical</property>
+                  <property name="spacing">4</property>
+                </object>
+              </child>
+            </object>
+          </child>
+        </object>
+      </child>
+    </object>
+
+    <object class="GtkPopover" id="to_unit_popover">
+      <property name="halign">end</property>
+      <property name="has-arrow">false</property>
+      <style><class name="yellow-ruler-pop"/></style>
+      <child>
+        <object class="GtkBox">
+          <child>
+            <object class="GtkScrolledWindow">
+              <property name="hscrollbar-policy">never</property>
+              <property name="vscrollbar-policy">automatic</property>
+              <property name="propagate-natural-height">true</property>
+              <child>
+                <object class="GtkBox" id="to_unit_box">
+                  <property name="margin-end"   >10</property>
+                  <property name="margin-start" >10</property>
+                  <property name="margin-top"   >10</property>
+                  <property name="margin-bottom">10</property>
+                  <property name="orientation">vertical</property>
+                  <property name="spacing">4</property>
+                </object>
+              </child>
+            </object>
+          </child>
+        </object>
+      </child>
+    </object>
+
+
+  </template>
+</interface>
+
+
+
+

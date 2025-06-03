@@ -6,7 +6,10 @@ from decimal import Decimal, getcontext, InvalidOperation, ROUND_HALF_UP
 getcontext().prec = 28
 
 def sanitize_expression(expression):
-    return re.sub(r'[\+\-\*/\^x√]+\s*$', '', expression)
+    #expression = ' '.join(expression.strip().split()) #Removes excessive whitespace
+    expression = re.sub(r'\s+', '', expression) #Removes all whitespace
+    expression = re.sub(r'[\+\-\*/\^x√]+\s*$', '', expression)
+    return expression
 
 def format_result(value) -> str:
     if not isinstance(value, Decimal):
