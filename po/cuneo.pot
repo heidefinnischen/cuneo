@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cuneo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 11:01+0200\n"
+"POT-Creation-Date: 2025-06-04 14:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1462,6 +1462,22 @@ msgstr ""
 
 #: src/history_window.py:253
 msgid "Conversion History"
+msgstr ""
+
+#: src/calculation-stack.ui:29
+msgid "Calculate"
+msgstr ""
+
+#: src/calculation-stack.ui:60
+msgid "Copy to clipboard"
+msgstr ""
+
+#: src/conversion-stack.ui:47
+msgid "Convert"
+msgstr ""
+
+#: src/conversion-stack.ui:97
+msgid "Result"
 msgstr ""
 
 #: src/gtk/help-overlay.ui:11

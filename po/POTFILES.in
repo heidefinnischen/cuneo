@@ -11,4 +11,7 @@ src/calculation_stack.py
 src/conversion_stack.py
 src/history_window.py
 src/ui.py
+src/history-window.ui
+src/calculation-stack.ui
+src/conversion-stack.ui
 src/gtk/help-overlay.ui

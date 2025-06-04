@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cuneo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 11:01+0200\n"
+"POT-Creation-Date: 2025-06-04 14:03+0200\n"
 "PO-Revision-Date: 2025-05-30 15:27+0200\n"
 "Last-Translator: Jan-Niklas Kuhn <x@x.x>\n"
 "Language-Team: German\n"
@@ -1463,6 +1463,22 @@ msgstr "Berechnungen"
 #: src/history_window.py:253
 msgid "Conversion History"
 msgstr "Umrechnungen"
+
+#: src/calculation-stack.ui:29
+msgid "Calculate"
+msgstr "Berechnen"
+
+#: src/calculation-stack.ui:60
+msgid "Copy to clipboard"
+msgstr "In die Zwischenablage kopieren"
+
+#: src/conversion-stack.ui:47
+msgid "Convert"
+msgstr "Umrechnen"
+
+#: src/conversion-stack.ui:97
+msgid "Result"
+msgstr "Ergebnis"
 
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"

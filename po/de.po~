@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cuneo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 10:43+0200\n"
+"POT-Creation-Date: 2025-06-04 11:01+0200\n"
 "PO-Revision-Date: 2025-05-30 15:27+0200\n"
 "Last-Translator: Jan-Niklas Kuhn <x@x.x>\n"
 "Language-Team: German\n"
@@ -23,7 +23,6 @@ msgid "Cuneo"
 msgstr "Cuneo"
 
 #: data/io.github.heidefinnischen.cuneo.desktop.in:8
-#, fuzzy
 msgid "Utility;Calculator;Conversion;Convert;Calculate;Converter;Calculation;"
 msgstr "Dienst;Rechner;Taschenrechner;Konvertieren;Umrechnen;Rechnen;Konvertierer;Umrechner;Einheit;"
 
@@ -1516,12 +1515,12 @@ msgstr "Rückgängig"
 msgid "Redo"
 msgstr "Wiederholen"
 
-#: src/gtk/help-overlay.ui:83
+#: src/gtk/help-overlay.ui:83 src/gtk/help-overlay.ui:124
 msgctxt "shortcut window"
 msgid "Calculator only"
 msgstr "Nur Taschenrechner"
 
-#: src/gtk/help-overlay.ui:86
+#: src/gtk/help-overlay.ui:86 src/gtk/help-overlay.ui:127
 msgid "√() (Square Root)"
 msgstr "√() (Quadratwurzel)"
 
@@ -1544,3 +1543,7 @@ msgstr ""
 #: src/gtk/help-overlay.ui:116
 msgid "π (Pi)"
 msgstr ""
+
+#: src/gtk/help-overlay.ui:133
+msgid "Invert Units"
+msgstr "Einheiten tauschen"
