@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cuneo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-01 16:32+0200\n"
+"POT-Creation-Date: 2025-06-04 11:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid ""
 "Cuneo is a simple and straightforward app that lets you calculate and "
 "convert anything you might encounter in your daily life. Being designed like "
-"a widget Cuneo gets out of the way and is best used floating over a "
+"a widget Cuneo, gets out of the way and is best used floating over a "
 "maximized window so you can focus on your tasks and dont need to have a "
 "clunky calculation app covering half your screen."
 msgstr ""
@@ -49,7 +49,7 @@ msgid "A caption"
 msgstr ""
 
 #. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
-#: src/main.py:90
+#: src/main.py:91
 msgid "translator-credits"
 msgstr ""
 
@@ -57,39 +57,15 @@ msgstr ""
 msgid "Main Menu"
 msgstr ""
 
-#: src/window.ui:167
-msgid "Calculate"
+#: src/window.ui:190
+msgid "_History"
 msgstr ""
 
-#: src/window.ui:197 src/window.ui:274
-msgid "Copy to clipboard"
-msgstr ""
-
-#: src/window.ui:264 src/window.ui:405
-msgid "Result"
-msgstr ""
-
-#: src/window.ui:354
-msgid "Convert"
-msgstr ""
-
-#: src/window.ui:584
-msgid "_Scratchpad"
-msgstr ""
-
-#: src/window.ui:588
-msgid "_Calculation/Conversion History"
-msgstr ""
-
-#: src/window.ui:592
-msgid "_Preferences"
-msgstr ""
-
-#: src/window.ui:596
+#: src/window.ui:194
 msgid "_Keyboard Shortcuts"
 msgstr ""
 
-#: src/window.ui:600
+#: src/window.ui:198
 msgid "_About Cuneo"
 msgstr ""
 
@@ -1369,112 +1345,123 @@ msgstr ""
 msgid "°C"
 msgstr ""
 
-#: src/units.py:166
+#: src/units.py:167
 msgid "degree Fahrenheit"
 msgstr ""
 
-#: src/units.py:166
+#: src/units.py:167
 msgid "degrees Fahrenheit"
 msgstr ""
 
-#: src/units.py:166
+#: src/units.py:167
 msgid "°F"
 msgstr ""
 
-#: src/units.py:171
+#: src/units.py:173
 msgid "kelvin"
 msgstr ""
 
-#: src/units.py:171
+#: src/units.py:173
 msgid "kelvins"
 msgstr ""
 
-#: src/units.py:171
+#: src/units.py:173
 msgid "K"
 msgstr ""
 
-#: src/units.py:176
+#: src/units.py:179
 msgid "degree Rankine"
 msgstr ""
 
-#: src/units.py:176
+#: src/units.py:179
 msgid "degrees Rankine"
 msgstr ""
 
-#: src/units.py:176
+#: src/units.py:179
 msgid "°R"
 msgstr ""
 
-#: src/units.py:199
+#: src/units.py:203
 msgid "Digital"
 msgstr ""
 
-#: src/units.py:200
+#: src/units.py:204
 msgid "Binary"
 msgstr ""
 
-#: src/units.py:201
+#: src/units.py:205
 msgid "Metric"
 msgstr ""
 
-#: src/units.py:202
+#: src/units.py:206
 msgid "Imperial"
 msgstr ""
 
-#: src/units.py:203
+#: src/units.py:207
 msgid "US Customary"
 msgstr ""
 
-#: src/units.py:204
+#: src/units.py:208
 msgid "Nautical"
 msgstr ""
 
-#: src/units.py:223
+#: src/units.py:227
 msgid "Length"
 msgstr ""
 
-#: src/units.py:224
+#: src/units.py:228
 msgid "Speed"
 msgstr ""
 
-#: src/units.py:225
+#: src/units.py:229
 msgid "Temperature"
 msgstr ""
 
-#: src/units.py:226
+#: src/units.py:230
 msgid "Area"
 msgstr ""
 
-#: src/units.py:227
+#: src/units.py:231
 msgid "Time"
 msgstr ""
 
-#: src/units.py:228
+#: src/units.py:232
 msgid "Mass"
 msgstr ""
 
-#: src/units.py:229
+#: src/units.py:233
 msgid "Volume"
 msgstr ""
 
-#: src/units.py:230
+#: src/units.py:234
 msgid "Data"
 msgstr ""
 
-#: src/units.py:231
+#: src/units.py:235
 msgid "Pressure"
 msgstr ""
 
-#: src/units.py:232
+#: src/units.py:236
 msgid "Energy"
 msgstr ""
 
-#: src/units.py:233
+#: src/units.py:237
 msgid "Frequency"
 msgstr ""
 
-#: src/ui.py:3
+#: src/calculation_stack.py:8
 msgid "Invalid"
+msgstr ""
+
+#. Optional: allow clicking outside
+#. initial size
+#. minimum size
+#: src/history_window.py:36 src/history_window.py:260
+msgid "Calculation History"
+msgstr ""
+
+#: src/history_window.py:253
+msgid "Conversion History"
 msgstr ""
 
 #: src/gtk/help-overlay.ui:11
@@ -1486,53 +1473,77 @@ msgstr ""
 msgid "Switch Mode"
 msgstr ""
 
-#: src/gtk/help-overlay.ui:21
+#: src/gtk/help-overlay.ui:22
+msgid "Show History"
+msgstr ""
+
+#: src/gtk/help-overlay.ui:28
 msgctxt "shortcut window"
 msgid "Show Shortcuts"
 msgstr ""
 
-#: src/gtk/help-overlay.ui:27
+#: src/gtk/help-overlay.ui:34
 msgctxt "shortcut window"
 msgid "Quit"
 msgstr ""
 
-#: src/gtk/help-overlay.ui:35
+#: src/gtk/help-overlay.ui:42
 msgid "Editing"
 msgstr ""
 
-#: src/gtk/help-overlay.ui:38
+#: src/gtk/help-overlay.ui:45
 msgid "Select All"
 msgstr ""
 
-#: src/gtk/help-overlay.ui:44
+#: src/gtk/help-overlay.ui:51
 msgid "Cut"
 msgstr ""
 
-#: src/gtk/help-overlay.ui:50
+#: src/gtk/help-overlay.ui:57
 msgid "Copy"
 msgstr ""
 
-#: src/gtk/help-overlay.ui:56
+#: src/gtk/help-overlay.ui:63
 msgid "Paste"
 msgstr ""
 
-#: src/gtk/help-overlay.ui:62
+#: src/gtk/help-overlay.ui:69
 msgid "Undo"
 msgstr ""
 
-#: src/gtk/help-overlay.ui:68
+#: src/gtk/help-overlay.ui:75
 msgid "Redo"
 msgstr ""
 
-#: src/gtk/help-overlay.ui:76
+#: src/gtk/help-overlay.ui:83 src/gtk/help-overlay.ui:124
 msgctxt "shortcut window"
-msgid "Insert"
+msgid "Calculator only"
 msgstr ""
 
-#: src/gtk/help-overlay.ui:79
-msgid "+ (Plus)"
-msgstr ""
-
-#: src/gtk/help-overlay.ui:85
+#: src/gtk/help-overlay.ui:86 src/gtk/help-overlay.ui:127
 msgid "√() (Square Root)"
+msgstr ""
+
+#: src/gtk/help-overlay.ui:92
+msgid "sin()"
+msgstr ""
+
+#: src/gtk/help-overlay.ui:98
+msgid "cos()"
+msgstr ""
+
+#: src/gtk/help-overlay.ui:104
+msgid "tan()"
+msgstr ""
+
+#: src/gtk/help-overlay.ui:110
+msgid "log()"
+msgstr ""
+
+#: src/gtk/help-overlay.ui:116
+msgid "π (Pi)"
+msgstr ""
+
+#: src/gtk/help-overlay.ui:133
+msgid "Invert Units"
 msgstr ""

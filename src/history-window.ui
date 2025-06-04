@@ -26,7 +26,7 @@
             <child type="end">
               <object class="GtkButton" id="clear_button">
                 <signal name="clicked" handler="on_clear_history_button_clicked" swapped="no"/>
-                <style><class name="flat"/><class name="dim-hover"/></style>
+                <style><class name="flat"/><class name="dim-hover"/><class name="square-button"/></style>
                 <child>
                   <object class="GtkImage">
                     <property name="icon-name">history-undo-symbolic</property>

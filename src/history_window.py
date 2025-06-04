@@ -1,3 +1,5 @@
+from gettext import gettext as _
+
 import gi
 gi.require_version("Gtk", "4.0")
 from gi.repository import Adw
@@ -24,10 +26,14 @@ class HistoryWindow(Adw.Window):
 
         self.main_window = main_window
 
+        self.set_transient_for(self.main_window)
+        self.set_destroy_with_parent(True)
+        self.set_modal(False)  # Optional: allow clicking outside
+
         self.set_default_size(300, 440)  # initial size
         self.set_size_request(300, 440)  # minimum size
 
-        self.window_title.set_label("Calculation History")
+        self.window_title.set_label(_("Calculation History"))
 
     def clear_conv_history(self):
         child = self.conv_history_box.get_first_child()
@@ -49,11 +55,11 @@ class HistoryWindow(Adw.Window):
                 separator.set_valign(Gtk.Align.CENTER)
                 self.conv_history_box.append(separator)
 
-            insert_icon = Gtk.Image.new_from_icon_name("arrow-into-box-flipped-symbolic")
-            insert_button = Gtk.Button()
-            insert_button.set_child(insert_icon)
-            insert_button.add_css_class("flat")
-            insert_button.add_css_class("dim-hover")
+            #insert_icon = Gtk.Image.new_from_icon_name("arrow-into-box-flipped-symbolic")
+            #insert_button = Gtk.Button()
+            #insert_button.set_child(insert_icon)
+            #insert_button.add_css_class("flat")
+            #insert_button.add_css_class("dim-hover")
             #insert_button.connect("clicked", self.on_insert_clicked)
 
             conv_in_button = Gtk.Button()
@@ -88,12 +94,24 @@ class HistoryWindow(Adw.Window):
             conv_out_button.set_child(conv_out_box)
 
             item_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=6)
-            item_box.append(insert_button)
+            #item_box.append(insert_button)
             item_box.append(conv_in_button)
             item_box.append(arrow_icon)
             item_box.append(conv_out_button)
 
-            self.conv_history_box.append(item_box)
+            # Create a Gtk.Revealer and configure it
+            revealer = Gtk.Revealer()
+            revealer.set_transition_type(Gtk.RevealerTransitionType.CROSSFADE)
+            revealer.set_transition_duration(1000)  # Duration in milliseconds
+            revealer.set_child(item_box)
+            revealer.set_reveal_child(False)  # Start hidden
+
+            self.conv_history_box.append(revealer)
+
+            # Use GLib.idle_add to let GTK finish layout before triggering the animation
+            GLib.idle_add(revealer.set_reveal_child, True)
+
+            conv_out_button.grab_focus()
 
             self.scroll_to_bottom(self.conv_history_box, self.conv_history_scrolled)
 
@@ -125,6 +143,7 @@ class HistoryWindow(Adw.Window):
             insert_button.set_child(insert_icon)
             insert_button.add_css_class("flat")
             insert_button.add_css_class("dim-hover")
+            insert_button.add_css_class("square-button")
             insert_button.connect("clicked", self.on_insert_clicked)
 
             calc_in_button = Gtk.Button(label=calculation_input)
@@ -149,7 +168,18 @@ class HistoryWindow(Adw.Window):
             item_box.append(equation_label)
             item_box.append(calc_result_button)
 
-            self.calc_history_box.append(item_box)
+            # Create a Gtk.Revealer and configure it
+            revealer = Gtk.Revealer()
+            revealer.set_transition_type(Gtk.RevealerTransitionType.CROSSFADE)
+            revealer.set_transition_duration(1000)  # Duration in milliseconds
+            revealer.set_child(item_box)
+            revealer.set_reveal_child(False)  # Start hidden
+
+            self.calc_history_box.append(revealer)
+
+            # Use GLib.idle_add to let GTK finish layout before triggering the animation
+            GLib.idle_add(revealer.set_reveal_child, True)
+
             calc_result_button.grab_focus()
 
             if first_entry == True:
@@ -210,7 +240,7 @@ class HistoryWindow(Adw.Window):
             if isinstance(child, Gtk.Button) and child is not button:
                 label = child.get_label()
                 if label:
-                    self.main_window.calc_entry.set_text(label)
+                    self.main_window.calc_stack.calc_entry.set_text(label)
                     break
             child = child.get_next_sibling()
 
@@ -220,14 +250,14 @@ class HistoryWindow(Adw.Window):
             self.history_mode_stack.set_visible_child_name("convert_history")
             self.remove_css_class("smooth-transition")
             self.add_css_class("yellow-ruler")
-            self.window_title.set_label("Conversion History")
+            self.window_title.set_label(_("Conversion History"))
             self.scroll_to_bottom(self.conv_history_box, self.conv_history_scrolled)
         else:
             self.history_mode_stack.set_transition_type(Gtk.StackTransitionType.SLIDE_RIGHT)
             self.history_mode_stack.set_visible_child_name("calculate_history")
             self.add_css_class("smooth-transition")
             self.remove_css_class("yellow-ruler")
-            self.window_title.set_label("Calculation History")
+            self.window_title.set_label(_("Calculation History"))
             self.scroll_to_bottom(self.calc_history_box, self.calc_history_scrolled)
 
     @Gtk.Template.Callback()

@@ -74,12 +74,13 @@ class CuneoWindow(Adw.ApplicationWindow):
         action = Gio.SimpleAction.new("show-history", None)
         action.connect("activate", self.on_show_history)
         self.add_action(action)
+        self.connect("close-request", self.on_close)
 
         self.history_window = None
 
     def on_show_history(self, action, param):
         if not getattr(self, "history_window", None) or not self.history_window.get_visible():
-            self.history_window = HistoryWindow(self.get_application(), self)
+            self.history_window = HistoryWindow(app=self.get_application(), main_window=self)
 
         self.history_window.populate_calc_history(self.calc_stack.calculation_history)
         self.history_window.populate_conv_history(self.conv_stack.conversion_history)
@@ -90,7 +91,48 @@ class CuneoWindow(Adw.ApplicationWindow):
     def _setup_actions(self):
         actions = {
             "switch_mode": (self._toggle_mode, ["<Ctrl>Tab"]),
-            "sqrt": (lambda action, param: self.calc_stack.on_btn_sqrt_clicked(None), ["<Ctrl>R"]),
+            "invert": (
+                lambda action, param: self.conv_stack.on_invert_units_clicked(None)
+                if self.mode_stack.get_visible_child_name() == "convert"
+                else None,
+                ["<Ctrl>I"]
+            ),
+            "sqrt": (
+                lambda action, param: self.calc_stack.on_btn_sqrt_clicked(None)
+                if self.mode_stack.get_visible_child_name() == "calculate"
+                else None,
+                ["<Alt>R"]
+            ),
+            "sin": (
+                lambda action, param: self.calc_stack.on_btn_sin_clicked(None)
+                if self.mode_stack.get_visible_child_name() == "calculate"
+                else None,
+                ["<Alt>S"]
+            ),
+            "cos": (
+                lambda action, param: self.calc_stack.on_btn_cos_clicked(None)
+                if self.mode_stack.get_visible_child_name() == "calculate"
+                else None,
+                ["<Alt>C"]
+            ),
+            "tan": (
+                lambda action, param: self.calc_stack.on_btn_tan_clicked(None)
+                if self.mode_stack.get_visible_child_name() == "calculate"
+                else None,
+                ["<Alt>T"]
+            ),
+            "log": (
+                lambda action, param: self.calc_stack.on_btn_log_clicked(None)
+                if self.mode_stack.get_visible_child_name() == "calculate"
+                else None,
+                ["<Alt>L"]
+            ),
+            "pi": (
+                lambda action, param: self.calc_stack.on_btn_pi_clicked(None)
+                if self.mode_stack.get_visible_child_name() == "calculate"
+                else None,
+                ["<Alt>P"]
+            ),
             "show_history": (self.on_show_history, ["<Ctrl>H"]),
         }
 
@@ -172,3 +214,9 @@ class CuneoWindow(Adw.ApplicationWindow):
         entry.set_text(current + key)
         entry.set_position(-1)
         return True
+
+    def on_close(self, *args):
+        if self.history_window and self.history_window.get_visible():
+            self.history_window.close()
+        return False  # allow normal window close
+

@@ -80,17 +80,58 @@
         </child>
         <child>
           <object class="GtkShortcutsGroup">
-            <property name="title" translatable="yes" context="shortcut window">Insert</property>
+            <property name="title" translatable="yes" context="shortcut window">Calculator only</property>
             <child>
               <object class="GtkShortcutsShortcut">
-                <property name="title" translatable="yes">+ (Plus)</property>
-                <property name="accelerator">+</property>
+                <property name="title" translatable="yes">√() (Square Root)</property>
+                <property name="accelerator">&lt;Alt&gt;R</property>
               </object>
             </child>
             <child>
               <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">sin()</property>
+                <property name="accelerator">&lt;Alt&gt;S</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">cos()</property>
+                <property name="accelerator">&lt;Alt&gt;C</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">tan()</property>
+                <property name="accelerator">&lt;Alt&gt;T</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">log()</property>
+                <property name="accelerator">&lt;Alt&gt;L</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">π (Pi)</property>
+                <property name="accelerator">&lt;Alt&gt;P</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkShortcutsGroup">
+            <property name="title" translatable="yes" context="shortcut window">Calculator only</property>
+            <child>
+              <object class="GtkShortcutsShortcut">
                 <property name="title" translatable="yes">√() (Square Root)</property>
-                <property name="accelerator">&lt;Ctrl&gt;R</property>
+                <property name="accelerator">&lt;Alt&gt;R</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkShortcutsShortcut">
+                <property name="title" translatable="yes">Invert Units</property>
+                <property name="accelerator">&lt;Ctrl&gt;I</property>
               </object>
             </child>
           </object>

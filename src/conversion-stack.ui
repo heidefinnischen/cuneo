@@ -48,7 +48,6 @@
               <property name="hexpand">true</property>
               <property name="width-request">160</property>
               <property name="halign">fill</property>
-              <!-- <signal name="changed" handler="on_entry_changed" swapped="no"/> -->
               <signal name="changed" handler="on_convert_entry_changed" swapped="no"/>
             </object>
           </child>

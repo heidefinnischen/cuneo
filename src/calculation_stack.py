@@ -3,7 +3,7 @@ from gettext import gettext as _
 from gi.repository import Adw
 from gi.repository import Gtk, Gdk, GLib, Gio
 
-from .magic import tokenize, Parser, evaluate, sanitize_expression, format_result, ast_to_string, replace_superscripts
+from .magic import tokenize, Parser, evaluate, sanitize_expression, format_result, ast_to_string, replace_superscripts, replace_display_operators
 
 error_message = _("Invalid")
 
@@ -36,6 +36,10 @@ class CalculationStack(Gtk.Box):
             child = next_child
 
         self.calculation_history = []
+        self.history_update_timeout_id = None
+        self.pending_history_entry = None
+
+        self._calc_changed_handler_id = self.calc_entry.connect("changed", self.on_entry_changed)
 
 ################### CALCULATOR AREA
 
@@ -50,9 +54,23 @@ class CalculationStack(Gtk.Box):
     @Gtk.Template.Callback()
     def on_entry_changed(self, entry):
         raw_expression = self.calc_entry.get_text()
+        cursor_pos = entry.get_position()
+
+        filtered_expression, new_cursor_pos = self.filter_calc_entry(raw_expression, cursor_pos)
+
+        if filtered_expression != raw_expression:
+            entry.handler_block(self._calc_changed_handler_id)
+            entry.set_text(filtered_expression)
+            entry.set_position(new_cursor_pos)
+            entry.handler_unblock(self._calc_changed_handler_id)
+
+            # Use filtered expression going forward
+            raw_expression = filtered_expression
+
         expression = sanitize_expression(raw_expression)
 
         try:
+            expression = replace_display_operators(expression)
             expression = replace_superscripts(expression)
             tokens = tokenize(expression)
             ast = Parser(tokens).parse()
@@ -88,24 +106,75 @@ class CalculationStack(Gtk.Box):
                 self.calc_equation.set_visible(False)
                 self.copy_button.set_visible(False)
                 self.expression_button.set_label(error_message)
+                self.cancel_pending_history_update()
 
         except (SyntaxError, ValueError, ZeroDivisionError):
             self.calc_result.set_text("")
             self.expression_button.set_label(error_message)
             self.calc_equation.set_visible(False)
             self.copy_button.set_visible(False)
+            self.cancel_pending_history_update()
+
+    def filter_calc_entry(self, text, cursor_pos):
+        replacements = {
+            'x': '×',
+            'X': '×',
+            '*': '×',
+            '/': '÷',
+            ':': '÷',
+            '-': '−'
+        }
+
+        result = ''
+        new_cursor_pos = cursor_pos
+        i = 0
+
+        while i < len(text):
+            ch = text[i]
+            replacement = replacements.get(ch, ch)
+            result += replacement
+
+            # Adjust cursor position
+            if i < cursor_pos:
+                new_cursor_pos += len(replacement) - len(ch)
+
+            i += 1
+
+        return result, new_cursor_pos
+
 
     def update_calc_history(self, expression, output):
-        try:
-            if not self.calculation_history or [expression, output] != self.calculation_history[-1]:
-                self.calculation_history.append([expression, output])
-                if self.main_window.history_window:
-                    self.main_window.history_window.populate_calc_history(self.calculation_history)
-        except:
-            pass
-            #calculation_history.append([expression, output])
-            #if self.history_window:
-            #    self.history_window.populate_calc_history(calculation_history)
+        self.pending_history_entry = [expression, output]
+
+        # If a timeout is already scheduled, reset it
+        if self.history_update_timeout_id is not None:
+            GLib.source_remove(self.history_update_timeout_id)
+
+        # Schedule history update in 1 second (1000 ms)
+        self.history_update_timeout_id = GLib.timeout_add(
+            750, self._commit_history_entry
+        )
+
+    def _commit_history_entry(self):
+        entry = self.pending_history_entry
+
+        if entry in self.calculation_history:
+            self.calculation_history.remove(entry)
+
+        self.calculation_history.append(entry)
+
+        if self.main_window.history_window:
+            self.main_window.history_window.populate_calc_history(self.calculation_history)
+
+        self.history_update_timeout_id = None  # Clear the timeout ID
+        self.pending_history_entry = None
+        return False  # Stop timeout
+
+    def cancel_pending_history_update(self):
+        if self.history_update_timeout_id is not None:
+            GLib.source_remove(self.history_update_timeout_id)
+            self.history_update_timeout_id = None
+            self.pending_history_entry = None
 
     def insert_operator(self, operator):
         entry = self.calc_entry
@@ -173,3 +242,5 @@ class CalculationStack(Gtk.Box):
             entry.select_region(0, -1)
 
         GLib.idle_add(select_all)
+
+

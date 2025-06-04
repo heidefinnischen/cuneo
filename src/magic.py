@@ -5,6 +5,14 @@ from decimal import Decimal, getcontext, InvalidOperation, ROUND_HALF_UP
 # Set precision
 getcontext().prec = 28
 
+def replace_display_operators(expr):
+    return (
+        expr
+        .replace('×', '*')
+        .replace('÷', '/')
+        .replace('−', '-')
+    )
+
 def sanitize_expression(expression):
     #expression = ' '.join(expression.strip().split()) #Removes excessive whitespace
     expression = re.sub(r'\s+', '', expression) #Removes all whitespace
@@ -192,10 +200,8 @@ class Parser:
 
     def term(self):
         node = self.power()
-        while self.peek()[1] in ('*', '/', 'x'):
+        while self.peek()[1] in ('*', '/'):
             op = self.consume()[1]
-            if op == 'x':
-                op = '*'
             right = self.power()
             node = BinOp(node, op, right)
         return node

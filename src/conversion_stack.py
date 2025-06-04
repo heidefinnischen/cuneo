@@ -61,6 +61,12 @@ class ConversionStack(Gtk.Box):
         self.populate_units(self.conversion_types[initial_category], self.to_unit_box, self.on_to_unit_selected, active_unit_id=self.state.to_unit)
 
         self.conversion_history = []
+        self.history_update_timeout_id = None
+        self.pending_history_entry = None
+
+         # Disconnect GTK template auto-connection for changed signal and connect manually:
+        self._changed_handler_id = self.from_unit_entry.connect("changed", self.on_convert_entry_changed)
+
 
     def update_unit_labels(self):
             def get_short_unit_label(container):
@@ -190,11 +196,59 @@ class ConversionStack(Gtk.Box):
     @Gtk.Template.Callback()
     def on_convert_entry_changed(self, entry):
         text = entry.get_text()
+        cursor_pos = entry.get_position()
+
+        filtered_text, new_cursor_pos = self.filter_entry_text(text, cursor_pos)
+
+        if filtered_text != text:
+            # Block handler to avoid recursion when setting text
+            entry.handler_block(self._changed_handler_id)
+            entry.set_text(filtered_text)
+            entry.set_position(new_cursor_pos)
+            entry.handler_unblock(self._changed_handler_id)
+            text = filtered_text
+
         try:
             self.state.input_value = float(text)
         except ValueError:
             self.state.input_value = None
         self.update_conversion_result()
+
+    def filter_entry_text(self, text, cursor_pos):
+        allowed_chars = "0123456789.-"
+        filtered = ""
+        new_cursor_pos = cursor_pos
+
+        for i, ch in enumerate(text):
+            if ch in allowed_chars:
+                filtered += ch
+            else:
+                if i < cursor_pos:
+                    new_cursor_pos -= 1  # Adjust cursor if invalid char was before it
+
+        filtered = self._sanitize_text(filtered)
+        # Recompute cursor if sanitation altered length
+        if len(filtered) < new_cursor_pos:
+            new_cursor_pos = len(filtered)
+
+        return filtered, new_cursor_pos
+
+
+    def _sanitize_text(self, text):
+        # Allow only one '.' and '-' only at start
+        result = []
+        dot_seen = False
+        for i, ch in enumerate(text):
+            if ch == '.':
+                if not dot_seen:
+                    dot_seen = True
+                    result.append(ch)
+            elif ch == '-':
+                if i == 0:
+                    result.append(ch)
+            else:
+                result.append(ch)
+        return ''.join(result)
 
     def on_to_unit_selected(self, button):
         unit_id = button.get_name()
@@ -234,8 +288,9 @@ class ConversionStack(Gtk.Box):
 
     def update_conversion_result(self):
         value = self.state.input_value
-        if value is None:
+        if value is None or value == "":
             self.to_unit_entry.set_text("")
+            self.cancel_pending_history_update()
             return
 
         from_unit = self.state.from_unit
@@ -244,13 +299,15 @@ class ConversionStack(Gtk.Box):
 
         if not from_unit or not to_unit or not category:
             self.update_convert_result_text(None)
+            self.cancel_pending_history_update()
             return
 
         if value != None and value != "":
             result = self.conversion.convert_value(value, from_unit, to_unit, category, self.conversion_types)
             self.update_convert_result_text(result)
             self.update_conv_history(category, self.from_unit_entry.get_text(), from_unit, self.to_unit_entry.get_text(), to_unit)
-
+        else:
+            self.cancel_pending_history_update()
 
     def populate_type_buttons(self, active_type_id=None):
         # Clear previous buttons
@@ -353,15 +410,53 @@ class ConversionStack(Gtk.Box):
             child = next_child
 
     def update_conv_history(self, unit_type, input_val, from_unit, result_val, to_unit):
-        new_list = [unit_type, input_val, from_unit, result_val, to_unit]
-        try:
-            if not self.conversion_history or new_list != self.conversion_history[-1]:
-                self.conversion_history.append(new_list)
-                if self.main_window.history_window:
-                    self.main_window.history_window.populate_conv_history(self.conversion_history)
-        except:
-            self.conversion_history.append(new_list)
-            pass
+        unit_dict = CONVERSION_TYPES[unit_type]
+        from_short = unit_dict[from_unit][2]
+        to_short = unit_dict[to_unit][2]
+
+        new_entry = [unit_type, input_val, from_short, result_val, to_short]
+        self.pending_history_entry = new_entry
+
+        # If a timeout is already scheduled, reset it
+        if self.history_update_timeout_id is not None:
+            GLib.source_remove(self.history_update_timeout_id)
+
+        # Schedule history update in 1 second (1000 ms)
+        self.history_update_timeout_id = GLib.timeout_add(
+            1000, self._commit_history_entry
+        )
+
+    def _commit_history_entry(self):
+        entry = self.pending_history_entry
+
+        if entry in self.conversion_history:
+            self.conversion_history.remove(entry)
+
+        self.conversion_history.append(entry)
+
+        if self.main_window.history_window:
+            self.main_window.history_window.populate_conv_history(self.conversion_history)
+
+        self.history_update_timeout_id = None  # Clear the timeout ID
+        self.pending_history_entry = None
+        return False  # Stop timeout
+
+        # Not in use currently, history window directly clears list, should change though
+    def clear_conversion_history(self):
+        self.conversion_history.clear()
+
+    def cancel_pending_history_update(self):
+        if self.history_update_timeout_id is not None:
+            GLib.source_remove(self.history_update_timeout_id)
+            self.history_update_timeout_id = None
+            self.pending_history_entry = None
+
+
+
+
+
+
+
 
 class ConverterState:
 
@@ -398,6 +493,4 @@ class ConverterState:
         self.from_unit, self.to_unit = self.to_unit, self.from_unit
         self.input_value, self.result = self.result, self.input_value
 
-    # Not in use currently, history window directly clears list, should change though
-    def clear_conversion_history(self):
-        self.conversion_history.clear()
+

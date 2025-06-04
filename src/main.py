@@ -54,6 +54,7 @@ class CuneoApplication(Adw.Application):
         self.create_action('quit', lambda *_: self.quit(), ['<primary>q'])
         self.create_action('about', self.on_about_action)
         self.create_action('preferences', self.on_preferences_action)
+        self.create_action('switch_mode', self.on_switch_mode_action, ['<Ctrl>Tab'])
 
         self._load_css()
 
@@ -113,6 +114,12 @@ class CuneoApplication(Adw.Application):
         self.add_action(action)
         if shortcuts:
             self.set_accels_for_action(f"app.{name}", shortcuts)
+
+    def on_switch_mode_action(self, action, param):
+        for win in self.get_windows():
+            if isinstance(win, CuneoWindow):
+                win._toggle_mode(action, param)
+                break
 
 def main(version):
     """The application's entry point."""

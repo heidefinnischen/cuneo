@@ -147,3 +147,9 @@
   min-width: 28px;
   min-height: 28px;
 }
+
+.square-button {
+  padding: 0;
+  min-width: 34px;
+  min-height: 34px;
+}

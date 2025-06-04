@@ -7,5 +7,8 @@ src/main.py
 src/window.py
 src/window.ui
 src/units.py
+src/calculation_stack.py
+src/conversion_stack.py
+src/history_window.py
 src/ui.py
 src/gtk/help-overlay.ui
