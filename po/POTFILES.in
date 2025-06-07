@@ -1,17 +1,20 @@
 # List of source files containing translatable strings.
-# Please keep this file sorted alphabetically.
+
 data/io.github.heidefinnischen.cuneo.desktop.in
 data/io.github.heidefinnischen.cuneo.metainfo.xml.in
 data/io.github.heidefinnischen.cuneo.gschema.xml
+
 src/main.py
 src/window.py
 src/window.ui
-src/units.py
-src/calculation_stack.py
-src/conversion_stack.py
-src/history_window.py
-src/ui.py
-src/history-window.ui
-src/calculation-stack.ui
-src/conversion-stack.ui
 src/gtk/help-overlay.ui
+
+src/calculation_page.py
+src/calculation-page.ui
+
+src/conversion_page.py
+src/conversion-page.ui
+src/conversion_units.py
+
+src/history_window.py
+src/history-window.ui

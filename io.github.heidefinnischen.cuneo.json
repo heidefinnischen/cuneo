@@ -23,27 +23,14 @@
     ],
     "modules" : [
     	{
-	    "name": "python3-asteval",
-	    "buildsystem": "simple",
-	    "build-commands": [
-		"pip3 install --verbose --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"asteval\" --no-build-isolation"
-	    ],
-	    "sources": [
-		{
-		    "type": "file",
-		    "url": "https://files.pythonhosted.org/packages/13/ac/19dbba27e891f39feb4170b884da449ee2699ef4ebb88eefeda364bbbbcf/asteval-1.0.6-py3-none-any.whl",
-		    "sha256": "5e119ed306e39199fd99c881cea0e306b3f3807f050c9be79829fe274c6378dc"
-		}
-	    ]
-	},
-        {
-            "name" : "cuneo",
+	    "name" : "cuneo",
             "builddir" : true,
             "buildsystem" : "meson",
             "sources" : [
                 {
-                    "type" : "git",
-                    "url" : "file:///home/janniklaskuhn/Projects"
+                    "type" : "archive",
+                    "url" : "https://github.com/heidefinnischen/cuneo/archive/refs/tags/v1.0.tar.gz",
+                    "sha256" : "x"
                 }
             ]
         }
