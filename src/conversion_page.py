@@ -5,12 +5,12 @@ from gi.repository import Gtk, Gdk, GLib, Gio
 
 from collections import defaultdict
 
-from .units import *
-from .conversion import Conversion
+from .conversion_units import *
+from .conversion_math import Conversion
 
-@Gtk.Template(resource_path='/io/github/heidefinnischen/cuneo/conversion-stack.ui')
-class ConversionStack(Gtk.Box):
-    __gtype_name__ = "ConversionStack"
+@Gtk.Template(resource_path='/io/github/heidefinnischen/cuneo/conversion-page.ui')
+class ConversionPage(Gtk.Box):
+    __gtype_name__ = "ConversionPage"
 
     root_box = Gtk.Template.Child()
 

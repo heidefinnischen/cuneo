@@ -3,7 +3,7 @@
 <interface>
   <requires lib="gtk" version="4.0"/>
   <requires lib="Adw" version="1.0"/>
-  <template class="ConversionStack" parent="GtkBox">
+  <template class="ConversionPage" parent="GtkBox">
     <object class="GtkBox" id="root_box">
       <child>
         <object class="GtkBox">

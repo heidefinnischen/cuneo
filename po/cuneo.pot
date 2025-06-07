@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cuneo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-04 14:03+0200\n"
+"POT-Creation-Date: 2025-06-04 10:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1449,37 +1449,6 @@ msgstr ""
 msgid "Frequency"
 msgstr ""
 
-#: src/calculation_stack.py:8
-msgid "Invalid"
-msgstr ""
-
-#. Optional: allow clicking outside
-#. initial size
-#. minimum size
-#: src/history_window.py:36 src/history_window.py:260
-msgid "Calculation History"
-msgstr ""
-
-#: src/history_window.py:253
-msgid "Conversion History"
-msgstr ""
-
-#: src/calculation-stack.ui:29
-msgid "Calculate"
-msgstr ""
-
-#: src/calculation-stack.ui:60
-msgid "Copy to clipboard"
-msgstr ""
-
-#: src/conversion-stack.ui:47
-msgid "Convert"
-msgstr ""
-
-#: src/conversion-stack.ui:97
-msgid "Result"
-msgstr ""
-
 #: src/gtk/help-overlay.ui:11
 msgctxt "shortcut window"
 msgid "General"
@@ -1531,12 +1500,12 @@ msgstr ""
 msgid "Redo"
 msgstr ""
 
-#: src/gtk/help-overlay.ui:83 src/gtk/help-overlay.ui:124
+#: src/gtk/help-overlay.ui:83
 msgctxt "shortcut window"
 msgid "Calculator only"
 msgstr ""
 
-#: src/gtk/help-overlay.ui:86 src/gtk/help-overlay.ui:127
+#: src/gtk/help-overlay.ui:86
 msgid "√() (Square Root)"
 msgstr ""
 
@@ -1558,8 +1527,4 @@ msgstr ""
 
 #: src/gtk/help-overlay.ui:116
 msgid "π (Pi)"
-msgstr ""
-
-#: src/gtk/help-overlay.ui:133
-msgid "Invert Units"
 msgstr ""

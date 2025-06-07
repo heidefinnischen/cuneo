@@ -63,17 +63,13 @@
   margin: 0;
 }
 
-.test-tb-margins {
+.remove-tb-margins {
   margin-top: -7px;
   margin-bottom: -7px;
 }
 
-.add-anim-margins > * {
-  margin-top: 7px;
-  margin-bottom: 7px;
-}
 
-.offset-tb-margins {
+.offset-tb-margins > * > * > * > * > * > * > * {
   margin-top: 7px;
   margin-bottom: 7px;
 }
@@ -152,4 +148,8 @@
   padding: 0;
   min-width: 34px;
   min-height: 34px;
+}
+
+.right-margin-button {
+  margin-right: 20px;
 }

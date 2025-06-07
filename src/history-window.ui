@@ -12,7 +12,7 @@
 <!-- Header Bar and Toolbar Start -->
       <object class="AdwToolbarView">
         <child type="top">
-          <object class="AdwHeaderBar">
+          <object class="AdwHeaderBar" id="headerbar">
             <child type="title">
               <object class="GtkBox">
                 <child>
@@ -23,7 +23,7 @@
                 </child>
               </object>
             </child>
-            <child type="end">
+            <child type="start">
               <object class="GtkButton" id="clear_button">
                 <signal name="clicked" handler="on_clear_history_button_clicked" swapped="no"/>
                 <style><class name="flat"/><class name="dim-hover"/><class name="square-button"/></style>

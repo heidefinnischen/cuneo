@@ -2,8 +2,8 @@
 <gresources>
   <gresource prefix="/io/github/heidefinnischen/cuneo">
     <file preprocess="xml-stripblanks">window.ui</file>
-    <file preprocess="xml-stripblanks">conversion-stack.ui</file>
-    <file preprocess="xml-stripblanks">calculation-stack.ui</file>
+    <file preprocess="xml-stripblanks">conversion-page.ui</file>
+    <file preprocess="xml-stripblanks">calculation-page.ui</file>
     <file preprocess="xml-stripblanks">history-window.ui</file>
     <file preprocess="xml-stripblanks">gtk/help-overlay.ui</file>
     <file>style.css</file>

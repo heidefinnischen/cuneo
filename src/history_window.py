@@ -18,6 +18,7 @@ class HistoryWindow(Adw.Window):
     window_title = Gtk.Template.Child()
 
     history_mode_stack = Gtk.Template.Child()
+    headerbar = Gtk.Template.Child()
 
     clear_button = Gtk.Template.Child()
 
@@ -182,10 +183,10 @@ class HistoryWindow(Adw.Window):
 
             calc_result_button.grab_focus()
 
+            self.scroll_to_bottom(self.calc_history_box, self.calc_history_scrolled)
+
             if first_entry == True:
                 first_entry = False
-
-        self.scroll_to_bottom(self.calc_history_box, self.calc_history_scrolled)
 
 
     def scroll_to_bottom(self, history_box, scrolled_box):
@@ -240,7 +241,7 @@ class HistoryWindow(Adw.Window):
             if isinstance(child, Gtk.Button) and child is not button:
                 label = child.get_label()
                 if label:
-                    self.main_window.calc_stack.calc_entry.set_text(label)
+                    self.main_window.calc_page.calc_entry.set_text(label)
                     break
             child = child.get_next_sibling()
 
@@ -263,9 +264,8 @@ class HistoryWindow(Adw.Window):
     @Gtk.Template.Callback()
     def on_clear_history_button_clicked(self, button):
         if self.history_mode_stack.get_visible_child_name() == "convert_history":
-            self.main_window.conv_stack.conversion_history.clear()
+            self.main_window.conv_page.conversion_history.clear()
             self.clear_conv_history()
         else:
-            self.main_window.calc_stack.calculation_history.clear()
+            self.main_window.calc_page.calculation_history.clear()
             self.clear_calc_history()
-        #self.set_default_size(300, 440)

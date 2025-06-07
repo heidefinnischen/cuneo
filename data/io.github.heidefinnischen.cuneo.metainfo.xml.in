@@ -14,18 +14,12 @@
     <name>Jan-Niklas Kuhn</name>
   </developer>
 
-  <!-- Required: Should be a link to the upstream homepage for the component -->
   <url type="homepage">https://github.com/heidefinnischen/cuneo</url>
-  <!-- Recommended: It is highly recommended for open-source projects to display the source code repository -->
   <url type="vcs-browser">https://github.com/heidefinnischen/cuneo</url>
-  <!-- Should point to the software's bug tracking system, for users to report new bugs -->
   <url type="bugtracker">https://example.org/issues</url>
 
-  <translation type="gettext">cuneo</translation>
-  <!-- All graphical applications having a desktop file must have this tag in the MetaInfo.
-     If this is present, appstreamcli compose will pull icons, keywords and categories from the desktop file. -->
+  <translation type="gettext">cuneo</translation>>
   <launchable type="desktop-id">io.github.heidefinnischen.cuneo.desktop</launchable>
-  <!-- Use the OARS website (https://hughsie.github.io/oars/generate.html) to generate these and make sure to use oars-1.1 -->
   <content_rating type="oars-1.1" />
 
   <!-- Applications should set a brand color in both light and dark variants like so -->

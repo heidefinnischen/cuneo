@@ -3,13 +3,13 @@ from gettext import gettext as _
 from gi.repository import Adw
 from gi.repository import Gtk, Gdk, GLib, Gio
 
-from .magic import tokenize, Parser, evaluate, sanitize_expression, format_result, ast_to_string, replace_superscripts, replace_display_operators
+from .calculation_math import *
 
 error_message = _("Invalid")
 
-@Gtk.Template(resource_path='/io/github/heidefinnischen/cuneo/calculation-stack.ui')
-class CalculationStack(Gtk.Box):
-    __gtype_name__ = "CalculationStack"
+@Gtk.Template(resource_path='/io/github/heidefinnischen/cuneo/calculation-page.ui')
+class CalculationPage(Gtk.Box):
+    __gtype_name__ = "CalculationPage"
 
     root_box = Gtk.Template.Child()
 
@@ -67,10 +67,10 @@ class CalculationStack(Gtk.Box):
             # Use filtered expression going forward
             raw_expression = filtered_expression
 
-        expression = sanitize_expression(raw_expression)
+        disp_expression = sanitize_expression(raw_expression)
 
         try:
-            expression = replace_display_operators(expression)
+            expression = replace_display_operators(disp_expression)
             expression = replace_superscripts(expression)
             tokens = tokenize(expression)
             ast = Parser(tokens).parse()
@@ -98,7 +98,7 @@ class CalculationStack(Gtk.Box):
                 self.expression_button.set_label(interpreted)
 
                 # Add calculation to calculator history
-                self.update_calc_history(expression.strip(), output.strip())
+                self.update_calc_history(disp_expression.strip(), output.strip())
 
             else:
                 # Hide result and UI elements if no meaningful difference

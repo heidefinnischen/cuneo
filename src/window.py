@@ -22,8 +22,8 @@ from gettext import gettext as _
 from gi.repository import Adw
 from gi.repository import Gtk, Gdk, GLib, Gio
 
-from .conversion_stack import ConversionStack, ConverterState
-from .calculation_stack import CalculationStack
+from .conversion_page import ConversionPage, ConverterState
+from .calculation_page import CalculationPage
 from .history_window import HistoryWindow
 
 @Gtk.Template(resource_path='/io/github/heidefinnischen/cuneo/window.ui')
@@ -35,12 +35,12 @@ class CuneoWindow(Adw.ApplicationWindow):
     menu_button = Gtk.Template.Child()
     window_handle = Gtk.Template.Child()
 
-    # Stack and Stack pages
+    # Stack and Stack toggles
     mode_stack = Gtk.Template.Child()
-    calc_group = Gtk.Template.Child()
-    conv_group = Gtk.Template.Child()
+    calc_toggle = Gtk.Template.Child()
+    conv_toggle = Gtk.Template.Child()
 
-    # Stack content
+    # Stack page content
     convert_box = Gtk.Template.Child()
     calculate_box = Gtk.Template.Child()
 
@@ -49,15 +49,15 @@ class CuneoWindow(Adw.ApplicationWindow):
 
         self.set_resizable(False)
 
-        # Initilize Toggle group and set default page
-        self.conv_group.set_group(self.calc_group)
-        self.calc_group.set_active(True)
+        # Initialize Toggle group and set default page
+        self.conv_toggle.set_group(self.calc_toggle)
+        self.calc_toggle.set_active(True)
 
         # Add page content
-        self.calc_stack = CalculationStack(main_window=self)
-        self.calculate_box.append(self.calc_stack)
-        self.conv_stack = ConversionStack(main_window=self)
-        self.convert_box.append(self.conv_stack)
+        self.calc_page = CalculationPage(main_window=self)
+        self.calculate_box.append(self.calc_page)
+        self.conv_page = ConversionPage(main_window=self)
+        self.convert_box.append(self.conv_page)
 
         settings = Gtk.Settings.get_default()
         layout = settings.get_property("gtk-decoration-layout")
@@ -82,53 +82,56 @@ class CuneoWindow(Adw.ApplicationWindow):
         if not getattr(self, "history_window", None) or not self.history_window.get_visible():
             self.history_window = HistoryWindow(app=self.get_application(), main_window=self)
 
-        self.history_window.populate_calc_history(self.calc_stack.calculation_history)
-        self.history_window.populate_conv_history(self.conv_stack.conversion_history)
+        self.history_window.populate_calc_history(self.calc_page.calculation_history)
+        self.history_window.populate_conv_history(self.conv_page.conversion_history)
         if self.mode_stack.get_visible_child_name() == "convert":
             self.history_window.update_visible_stack("convert_history")
+        else:
+            self.history_window.update_visible_stack("calculate_history")
         self.history_window.present()
+        self.adjust_history_headerbar_item_order()
 
     def _setup_actions(self):
         actions = {
             "switch_mode": (self._toggle_mode, ["<Ctrl>Tab"]),
             "invert": (
-                lambda action, param: self.conv_stack.on_invert_units_clicked(None)
+                lambda action, param: self.conv_page.on_invert_units_clicked(None)
                 if self.mode_stack.get_visible_child_name() == "convert"
                 else None,
                 ["<Ctrl>I"]
             ),
             "sqrt": (
-                lambda action, param: self.calc_stack.on_btn_sqrt_clicked(None)
+                lambda action, param: self.calc_page.on_btn_sqrt_clicked(None)
                 if self.mode_stack.get_visible_child_name() == "calculate"
                 else None,
                 ["<Alt>R"]
             ),
             "sin": (
-                lambda action, param: self.calc_stack.on_btn_sin_clicked(None)
+                lambda action, param: self.calc_page.on_btn_sin_clicked(None)
                 if self.mode_stack.get_visible_child_name() == "calculate"
                 else None,
                 ["<Alt>S"]
             ),
             "cos": (
-                lambda action, param: self.calc_stack.on_btn_cos_clicked(None)
+                lambda action, param: self.calc_page.on_btn_cos_clicked(None)
                 if self.mode_stack.get_visible_child_name() == "calculate"
                 else None,
                 ["<Alt>C"]
             ),
             "tan": (
-                lambda action, param: self.calc_stack.on_btn_tan_clicked(None)
+                lambda action, param: self.calc_page.on_btn_tan_clicked(None)
                 if self.mode_stack.get_visible_child_name() == "calculate"
                 else None,
                 ["<Alt>T"]
             ),
             "log": (
-                lambda action, param: self.calc_stack.on_btn_log_clicked(None)
+                lambda action, param: self.calc_page.on_btn_log_clicked(None)
                 if self.mode_stack.get_visible_child_name() == "calculate"
                 else None,
                 ["<Alt>L"]
             ),
             "pi": (
-                lambda action, param: self.calc_stack.on_btn_pi_clicked(None)
+                lambda action, param: self.calc_page.on_btn_pi_clicked(None)
                 if self.mode_stack.get_visible_child_name() == "calculate"
                 else None,
                 ["<Alt>P"]
@@ -145,9 +148,9 @@ class CuneoWindow(Adw.ApplicationWindow):
     def _toggle_mode(self, action, param): # Keyboard Shortcut only code
         current = self.mode_stack.get_visible_child_name()
         if current == "convert":
-            self.calc_group.set_active(True)
+            self.calc_toggle.set_active(True)
         else:
-            self.conv_group.set_active(True)
+            self.conv_toggle.set_active(True)
 
     def _is_close_button_on_left(self):
         settings = Gtk.Settings.get_default()
@@ -172,19 +175,29 @@ class CuneoWindow(Adw.ApplicationWindow):
                 parent.remove(self.menu_button)
             self.headerbar.pack_end(self.menu_button)
 
+            self.mode_stack.remove_css_class("right-margin-button")
+
+
+    def adjust_history_headerbar_item_order(self):
+        if self._is_close_button_on_left():
+            parent = self.history_window.clear_button.get_parent()
+            if parent:
+                parent.remove(self.history_window.clear_button)
+            self.history_window.headerbar.pack_end(self.history_window.clear_button)
+
     @Gtk.Template.Callback()
     def on_toggle_toggled(self, button):
         if not button.get_active():
             return  # Ignore toggled-off buttons
 
-        if button == self.conv_group:
+        if button == self.conv_toggle:
             self.mode_stack.set_transition_type(Gtk.StackTransitionType.SLIDE_UP)
             self.mode_stack.set_visible_child_name("convert")
             self.remove_css_class("smooth-transition")
             self.add_css_class("yellow-ruler")
             if self.history_window:
                 self.history_window.update_visible_stack("convert_history")
-        elif button == self.calc_group:
+        elif button == self.calc_toggle:
             self.mode_stack.set_transition_type(Gtk.StackTransitionType.SLIDE_DOWN)
             self.mode_stack.set_visible_child_name("calculate")
             self.add_css_class("smooth-transition")
@@ -202,9 +215,9 @@ class CuneoWindow(Adw.ApplicationWindow):
         active_page = self.mode_stack.get_visible_child_name()
 
         if active_page == "convert":
-            entry = self.conv_stack.from_unit_entry
+            entry = self.conv_page.from_unit_entry
         else:
-            entry = self.calc_stack.calc_entry
+            entry = self.calc_page.calc_entry
 
         # If the entry doesn't already have focus, grab it
         if not entry.has_focus():

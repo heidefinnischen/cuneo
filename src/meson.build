@@ -30,13 +30,12 @@ cuneo_sources = [
   '__init__.py',
   'main.py',
   'window.py',
-  'units.py',
-  'conversion.py',
-  'token.py',
-  'magic.py',
   'history_window.py',
-  'conversion_stack.py',
-  'calculation_stack.py'
+  'conversion_page.py',
+  'conversion_units.py',
+  'conversion_math.py',
+  'calculation_page.py',
+  'calculation_math.py',
 ]
 
 

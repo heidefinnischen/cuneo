@@ -14,9 +14,9 @@
         <child type="top">
           <object class="AdwHeaderBar" id="headerbar">
             <style>
-              <class name="test-tb-margins"/>
+              <class name="remove-tb-margins"/>
+              <class name="offset-tb-margins"/>
             </style>
-
 
             <child type="start">
               <object class="GtkBox">
@@ -61,9 +61,6 @@
                         <property name="primary">True</property>
                         <property name="margin-start">6</property>
                         <property name="margin-end">6</property>
-                        <style>
-                          <class name="offset-tb-margins"/>
-                        </style>
                         <property name="height-request">70</property>
                         <property name="icon-name">open-menu-symbolic</property>
                         <property name="tooltip-text" translatable="yes">Main Menu</property>
@@ -89,7 +86,7 @@
                     <property name="margin-end">6</property>
                     <property name="spacing">2</property>
                     <child>
-                      <object class="GtkToggleButton" id="calc_group">
+                      <object class="GtkToggleButton" id="calc_toggle">
                         <style><class name="toggle-button"/><class name="flat"/></style>
                         <signal name="toggled" handler="on_toggle_toggled" swapped="no"/>
                         <child>
@@ -103,7 +100,7 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkToggleButton" id="conv_group">
+                      <object class="GtkToggleButton" id="conv_toggle">
                         <style><class name="toggle-button"/><class name="flat"/></style>
                         <signal name="toggled" handler="on_toggle_toggled" swapped="no"/>
                         <child>
@@ -131,9 +128,7 @@
             <child type="title">
               <object class="GtkStack" id="mode_stack">
                 <property name="hexpand">true</property>
-                <style>
-                  <class name="add-anim-margins"/>
-                </style>
+                <style><class name="right-margin-button"/></style>
                 <property name="transition-type">crossfade</property> <!-- FALLBACK -->
                 <property name="transition-duration">450</property>
 
