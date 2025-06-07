@@ -27,7 +27,7 @@ class HistoryWindow(Adw.Window):
 
         self.main_window = main_window
 
-        self.set_transient_for(self.main_window)
+        #self.set_transient_for(self.main_window)
         self.set_destroy_with_parent(True)
         self.set_modal(False)  # Optional: allow clicking outside
 
