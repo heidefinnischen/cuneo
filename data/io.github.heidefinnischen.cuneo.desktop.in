@@ -2,6 +2,7 @@
 Name=Cuneo
 Exec=cuneo
 Icon=io.github.heidefinnischen.cuneo
+GenericName[ru]=Конвертер единиц измерения и калькулятор
 Terminal=false
 Type=Application
 Categories=Utility;
