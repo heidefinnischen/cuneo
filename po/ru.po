@@ -1648,8 +1648,8 @@ msgstr "Частота"
 #. minimum size
 #: src/history_window.py:37 src/history_window.py:261
 msgid "Calculation History"
-msgstr "История расчетов"
+msgstr "История расчётов"
 
 #: src/history_window.py:254
 msgid "Conversion History"
-msgstr "История конвертаций"
+msgstr "История конвертации"
