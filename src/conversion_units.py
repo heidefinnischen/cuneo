@@ -1,4 +1,4 @@
-from gettext import gettext as _
+import gettext
 
 LENGTH_UNITS = {
 # id: singular name, plural name, short, factor

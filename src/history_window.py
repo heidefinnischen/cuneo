@@ -1,4 +1,4 @@
-from gettext import gettext as _
+import gettext
 
 import gi
 gi.require_version("Gtk", "4.0")
