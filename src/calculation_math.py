@@ -103,7 +103,7 @@ def ast_to_string(node, percent_base=None):
 # ---------------------
 def tokenize(expression):
     token_specification = [
-        ('NUMBER',   r'\d+(\.\d+)?%?'),
+        ('NUMBER',   r'((?<![\d\bpi\b|π\)])-)?\d+(\.\d+)?%?'),
         ('CONST',    r'\bpi\b|π'),
         ('FUNC',     r'sqrt|sin|cos|tan|log|abs'),
         ('SQRT',     r'√'),
@@ -218,6 +218,9 @@ class Parser:
         tok_type, tok_val = self.peek()
         if tok_type == 'NUMBER':
             self.consume()
+            if self.peek()[1] == '(':
+                right = self.factor()
+                return BinOp(Number(tok_val), '*', right)
             return Number(tok_val)
         elif tok_type == 'PERCENT':
             self.consume()
@@ -239,6 +242,9 @@ class Parser:
             self.consume()
             node = self.expr()
             self.consume('RPAREN')
+            if not self.peek()[1] is None and not self.peek()[1] in ('+','-','*','/','^'):
+                right = self.expr()
+                return BinOp(node, '*', right)
             return node
         else:
             raise SyntaxError(f"Unexpected token {tok_type}:{tok_val}")
@@ -311,6 +317,11 @@ expressions = [
     "10¹",
     "10² + 2",
     "(1 + 2)³",
+    "2(3)",
+    "(5)2",
+    "2 + -2",
+    "2 * -7",
+    "2(-5)",
 ]
 
 results = []
@@ -327,4 +338,5 @@ for expr in expressions:
 
 for expr, res in results:
     print(f"{expr} = {res}")
+
 
