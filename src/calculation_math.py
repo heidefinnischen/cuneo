@@ -88,10 +88,17 @@ def ast_to_string(node, percent_base=None):
         if percent_base is None:
             return f"({node.value} / 100)"
         return f"(({percent_base} * {node.value}) / 100)"
+    elif isinstance(node, UnaryOp):
+        return f"(−{ast_to_string(node.operand)})"
     elif isinstance(node, BinOp):
         left_str = ast_to_string(node.left)
-        right_str = ast_to_string(node.right, percent_base=evaluate(node.left)
-                                  if isinstance(node.right, Percent) else None)
+        if isinstance(node.right, Percent) and node.op in ('+', '-'):
+            right_str = ast_to_string(
+                node.right,
+                percent_base=evaluate(node.left)
+            )
+        else:
+            right_str = ast_to_string(node.right)
         return f"({left_str} {node.op} {right_str})"
     elif isinstance(node, Function):
         return f"{node.name}({ast_to_string(node.arg)})"
@@ -160,6 +167,11 @@ class BinOp(ASTNode):
         self.op = op
         self.right = right
 
+class UnaryOp(ASTNode):
+    def __init__(self, op, operand):
+        self.op = op
+        self.operand = operand
+
 class Function(ASTNode):
     def __init__(self, name, arg):
         self.name = name
@@ -199,19 +211,37 @@ class Parser:
         return node
 
     def term(self):
-        node = self.power()
-        while self.peek()[1] in ('*', '/'):
-            op = self.consume()[1]
-            right = self.power()
-            node = BinOp(node, op, right)
+        node = self.unary()
+        while True:
+            tok_type, tok_val = self.peek()
+            if tok_val in ('*', '/'):
+                op = self.consume()[1]
+                right = self.unary()
+                node = BinOp(node, op, right)
+
+            elif tok_type in ('NUMBER', 'CONST', 'FUNC', 'SQRT', 'LPAREN'):
+                # implicit multiplication
+                right = self.unary()
+                node = BinOp(node, '*', right)
+
+            else:
+                break
         return node
+
+    def unary(self):
+        tok_type, tok_val = self.peek()
+
+        if tok_type == 'OP' and tok_val == '-':
+            self.consume()
+            return UnaryOp('-', self.unary())
+        return self.power()
 
     def power(self):
         node = self.factor()
-        while self.peek()[1] == '^':
+        if self.peek()[1] == '^':
             self.consume()
-            right = self.factor()
-            node = BinOp(node, '^', right)
+            right = self.unary()
+            return BinOp(node, '^', right)
         return node
 
     def factor(self):
@@ -252,12 +282,20 @@ def evaluate(node, percent_base=None):
     elif isinstance(node, Constant):
         return node.value
     elif isinstance(node, Percent):
+        percentage = node.value / Decimal("100")
         if percent_base is None:
-            raise ValueError("Percent used without a base value")
-        return (node.value / Decimal("100")) * percent_base
+            return percentage
+        return percentage * percent_base
+    elif isinstance(node, UnaryOp):
+        return -evaluate(node.operand)
     elif isinstance(node, BinOp):
         left_val = evaluate(node.left)
-        right_val = evaluate(node.right, left_val if isinstance(node.right, Percent) else None)
+
+        if isinstance(node.right, Percent) and node.op in ('+', '-'):
+            right_val = evaluate(node.right, left_val)
+        else:
+            right_val = evaluate(node.right)
+
         if node.op == '+':
             return left_val + right_val
         elif node.op == '-':
@@ -288,43 +326,69 @@ def evaluate(node, percent_base=None):
 # ---------------------
 # 5. TEST CASES
 # ---------------------
-expressions = [
-    "5 + 50%",
-    "100 - 25%",
-    "10 * 50%",
-    "10 x 50%",
-    "sqrt(16)",
-    "√16",
-    "5 + sqrt(49)",
-    "(5 + 5) * 2",
-    "100 + 10% + 5%",
-    "2 ^ 8",
-    "sin(0)",
-    "cos(0)",
-    "tan(0)",
-    "log(1000)",
-    "abs(-123)",
-    "pi",
-    "2 * pi",
-    "2²",
-    "3³",
-    "10¹",
-    "10² + 2",
-    "(1 + 2)³",
+test_cases = [
+    ("5 + 50%", "7.5"),
+    ("100 - 25%", "75"),
+    ("10 * 50%","5"),
+    ("sqrt(16)","4"),
+    ("√16","4"),
+    ("5 + sqrt(49)","12"),
+    ("(5 + 5) * 2","20"),
+    ("100 + 10% + 5%","115.5"),
+    ("2 ^ 8","256"),
+    ("sin(2)","0.909297427"),
+    ("cos(2)","-0.416146837"),
+    ("tan(2)","-2.185039863"),
+    ("log(1000)","3"),
+    ("abs(-123)+2","125"),
+    ("pi","3.141592654"),
+    ("2 * pi","6.283185307"),
+    ("2²","4"),
+    ("3³","27"),
+    ("10¹","10"),
+    ("10² + 2","102"),
+    ("(1 + 2)³","27"),
+    ("2(3)","6"),
+    ("(5)2","10"),
+    ("2 + -1","1"),
+    ("2 * -7","-14"),
+    ("2(-5)","-10"),
+    ("-2 ^ 2", "-4"),
+    ("2 + -1", "1"),
+    ("2 * -7", "-14"),
+    ("2(-5)", "-10"),
+    ("-2", "-2"),
+    ("5 - -2", "7"),
+    ("-pi", "-3.141592654"),
+    ("-(2 + 3)", "-5"),
+    ("-√16", "-4"),
+    ("-2 ^ 2", "-4"),
+    ("(-2) ^ 2", "4"),
+    ("2 ^ -2", "0.25"),
+    ("2 ^ 3 ^ 2", "512"),
+    ("5 + 50% + 5", "12.5"),
+    ("10%*2", "0.2"),
+    ("-(3 + 4 * (2 - 7))^2 / (5% * 8) + sqrt(144) * (2 + 3)^2 - 50% * (18 - 6) + 2^3^2 - sin(pi / 4) + abs(-17) / 2", "91.292893219"),
+    ("-(2^3 - 5(7 - 3))^2 / (10% * 4) + sqrt((3 + 4)^2 + (6 - 2)^2) * (2 + 3)^2 - 25% * (80 - 12) + 2^3^2 - sin(pi / 4)^2 + cos(pi / 3)^2 + abs(-17 + 5^2) / 3", "338.973110374"),
 ]
 
-results = []
-for expr in expressions:
+for expression, expected in test_cases:
     try:
-        expr = replace_superscripts(expr)
-        sanitized = sanitize_expression(expr)
+        expression = replace_superscripts(expression)
+        sanitized = sanitize_expression(expression)
         tokens = tokenize(sanitized)
         ast = Parser(tokens).parse()
-        result = evaluate(ast)
-        results.append((expr, format_result(result)))
-    except Exception as e:
-        results.append((expr, f"Error: {e}"))
+        result = format_result(evaluate(ast))
 
-for expr, res in results:
-    print(f"{expr} = {res}")
+        if result == expected:
+            print(f"PASS  {expression} = {result}")
+        else:
+            print(f"FAIL  {expression}")
+            print(f"      expected: {expected}")
+            print(f"      got:      {result}")
+
+    except Exception as e:
+        print(f"ERROR {expression}")
+        print(f"      expected: {expected}")
+        print(f"      error:    {e}")
 

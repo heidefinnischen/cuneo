@@ -87,7 +87,6 @@
   background-color: var(--active-toggle-bg-color);
   box-shadow: 0 1px 3px 1px RGB(0 0 6 / 7%),
                     0 2px 7px 2px RGB(0 0 6 / 3%);
-
 }
 
 .toggle-box {
@@ -96,7 +95,6 @@
   padding: 3px;
   margin-top: 4px;
   margin-bottom: 4px;
-
 }
 
 .in-entry-button,
@@ -152,4 +150,8 @@
 
 .right-margin-button {
   margin-right: 20px;
+}
+
+.conversion-entry {
+  padding-right: 70px;
 }

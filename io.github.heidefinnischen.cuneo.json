@@ -1,7 +1,7 @@
 {
     "id" : "io.github.heidefinnischen.cuneo",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "48",
+    "runtime-version" : "51",
     "sdk" : "org.gnome.Sdk",
     "command" : "cuneo",
     "finish-args" : [
@@ -34,6 +34,5 @@
                 }
             ]
         }
-
     ]
 }

@@ -220,7 +220,6 @@ UNIT_TYPE_ICONS = {
     "energy": "camera-flash-symbolic",
     "frequency": "sine-symbolic",
     "pressure": "tip-pressure-soft-symbolic",
-    # add others as needed
 }
 
 UNIT_TYPE_NAMES = {
@@ -236,3 +235,4 @@ UNIT_TYPE_NAMES = {
     "energy": _("Energy"),
     "frequency": _("Frequency"),
 }
+

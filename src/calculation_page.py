@@ -95,7 +95,10 @@ class CalculationPage(Gtk.Box):
 
                 # Update interpreted expression preview
                 interpreted = ast_to_string(ast)
-                self.expression_button.set_label(interpreted)
+                if interpreted[0] == "(" and interpreted[-1] == ")":
+                    self.expression_button.set_label(interpreted[1:-1])
+                else:
+                    self.expression_button.set_label(interpreted)
 
                 # Add calculation to calculator history
                 self.update_calc_history(disp_expression.strip(), output.strip())

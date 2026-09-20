@@ -46,11 +46,12 @@ from .window import CuneoWindow
 class CuneoApplication(Adw.Application):
     """The main application singleton class."""
 
-    def __init__(self):
+    def __init__(self, convert_mode=False):
         super().__init__(application_id='io.github.heidefinnischen.cuneo',
                          flags=Gio.ApplicationFlags.DEFAULT_FLAGS,
                          resource_base_path='/io/github/heidefinnischen/cuneo')
 
+        self.convert_mode = convert_mode
         self.create_action('quit', lambda *_: self.quit(), ['<primary>q'])
         self.create_action('about', self.on_about_action)
         self.create_action('preferences', self.on_preferences_action)
@@ -76,6 +77,8 @@ class CuneoApplication(Adw.Application):
         win = self.props.active_window
         if not win:
             win = CuneoWindow(application=self)
+            if self.convert_mode:
+                win._toggle_mode(None, None)
         win.set_size_request(400, 30)
         win.present()
 
@@ -84,9 +87,9 @@ class CuneoApplication(Adw.Application):
         about = Adw.AboutDialog(application_name='Cuneo',
                                 application_icon='io.github.heidefinnischen.cuneo',
                                 developer_name='Jan-Niklas Kuhn',
-                                version='0.9.0',
+                                version='1.1',
                                 developers=['Jan-Niklas Kuhn'],
-                                copyright='© 2025 Jan-Niklas Kuhn')
+                                copyright='© 2025–2026 Jan-Niklas Kuhn')
         # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
         about.set_translator_credits(_('translator-credits'))
         about.set_artists(['Jan-Niklas Kuhn'])
@@ -123,6 +126,8 @@ class CuneoApplication(Adw.Application):
 
 def main(version):
     """The application's entry point."""
-    app = CuneoApplication()
+    convert_mode = '--convert' in sys.argv
+
+    app = CuneoApplication(convert_mode=convert_mode)
     return app.run(sys.argv)
     
