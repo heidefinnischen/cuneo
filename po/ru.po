@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cuneo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 13:44+0200\n"
+"POT-Creation-Date: 2026-09-20 14:40-0400\n"
 "PO-Revision-Date: 2025-06-18 09:27+0300\n"
 "Last-Translator: Владислав Малышев <ma12@rambler.ru>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -27,8 +27,12 @@ msgstr ""
 msgid "Cuneo"
 msgstr ""
 
-#: data/io.github.heidefinnischen.cuneo.desktop.in:8
-msgid "Utility;Calculator;Conversion;Convert;Calculate;Converter;Calculation;"
+#: data/io.github.heidefinnischen.cuneo.desktop.in:5
+msgid "Calculator and Conversion tool"
+msgstr "Конвертер единиц измерения и калькулятор"
+
+#: data/io.github.heidefinnischen.cuneo.desktop.in:9
+msgid "Utility;Calculator;Conversion;Convert;Calculate;Converter;Calculation;Math;"
 msgstr ""
 
 #: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:8
@@ -131,15 +135,11 @@ msgid "Conversion Mode (light)"
 msgstr "Режим конвертации (светлая тема)"
 
 #: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:53
-msgid "Conversion Mode being used with a code editor (dark)"
-msgstr "Режим конвертации в редакторе кода (темная тема)"
-
-#: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:57
-msgid "Conversion Mode being used to convert miles to kilometers (light)"
-msgstr "Режим конвертации для преобразования миль в километры (светлая тема)"
+msgid "Conversion Mode (dark)"
+msgstr "Режим конвертации (тёмная тема)"
 
 #. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
-#: src/main.py:91
+#: src/main.py:94
 msgid "translator-credits"
 msgstr "Вячеслав Мылышев <ma12@rambler.ru>"
 
@@ -255,11 +255,11 @@ msgstr "Вычислить"
 msgid "Copy to clipboard"
 msgstr "Копировать в буфер обмена"
 
-#: src/conversion-page.ui:47
+#: src/conversion-page.ui:48
 msgid "Convert"
 msgstr "Конвертировать"
 
-#: src/conversion-page.ui:97
+#: src/conversion-page.ui:98
 msgid "Result"
 msgstr "Результат"
 
@@ -1599,47 +1599,47 @@ msgstr "Принятые в США"
 msgid "Nautical"
 msgstr "Морские"
 
-#: src/conversion_units.py:227
+#: src/conversion_units.py:226
 msgid "Length"
 msgstr "Длина"
 
-#: src/conversion_units.py:228
+#: src/conversion_units.py:227
 msgid "Speed"
 msgstr "Скорость"
 
-#: src/conversion_units.py:229
+#: src/conversion_units.py:228
 msgid "Temperature"
 msgstr "Температура"
 
-#: src/conversion_units.py:230
+#: src/conversion_units.py:229
 msgid "Area"
 msgstr "Площадь"
 
-#: src/conversion_units.py:231
+#: src/conversion_units.py:230
 msgid "Time"
 msgstr "Время"
 
-#: src/conversion_units.py:232
+#: src/conversion_units.py:231
 msgid "Mass"
 msgstr "Масса"
 
-#: src/conversion_units.py:233
+#: src/conversion_units.py:232
 msgid "Volume"
 msgstr "Объем"
 
-#: src/conversion_units.py:234
+#: src/conversion_units.py:233
 msgid "Data"
 msgstr "Данные"
 
-#: src/conversion_units.py:235
+#: src/conversion_units.py:234
 msgid "Pressure"
 msgstr "Давление"
 
-#: src/conversion_units.py:236
+#: src/conversion_units.py:235
 msgid "Energy"
 msgstr "Энергия"
 
-#: src/conversion_units.py:237
+#: src/conversion_units.py:236
 msgid "Frequency"
 msgstr "Частота"
 
@@ -1653,3 +1653,10 @@ msgstr "История расчётов"
 #: src/history_window.py:254
 msgid "Conversion History"
 msgstr "История конвертации"
+
+#~ msgid "Conversion Mode being used with a code editor (dark)"
+#~ msgstr "Режим конвертации в редакторе кода (темная тема)"
+
+#~ msgid "Conversion Mode being used to convert miles to kilometers (light)"
+#~ msgstr ""
+#~ "Режим конвертации для преобразования миль в километры (светлая тема)"

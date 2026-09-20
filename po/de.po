@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cuneo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 13:44+0200\n"
+"POT-Creation-Date: 2026-09-20 14:40-0400\n"
 "PO-Revision-Date: 2026-09-20 13:27+0200\n"
 "Last-Translator: Jan-Niklas Kuhn <x@x.x>\n"
 "Language-Team: German\n"
@@ -22,13 +22,17 @@ msgstr ""
 msgid "Cuneo"
 msgstr "Cuneo"
 
-#: data/io.github.heidefinnischen.cuneo.desktop.in:8
-msgid "Utility;Calculator;Conversion;Convert;Calculate;Converter;Calculation;"
-msgstr "Dienst;Rechner;Taschenrechner;Konvertieren;Umrechnen;Rechnen;Konvertierer;Umrechner;Einheit;"
+#: data/io.github.heidefinnischen.cuneo.desktop.in:5
+msgid "Calculator and Conversion tool"
+msgstr "Taschenrechner und Einheitenumrechner"
+
+#: data/io.github.heidefinnischen.cuneo.desktop.in:9
+msgid "Utility;Calculator;Conversion;Convert;Calculate;Converter;Calculation;Math;"
+msgstr "Dienst;Rechner;Taschenrechner;Konvertieren;Umrechnen;Rechnen;Konvertierer;Umrechner;Einheit;Mathematik;"
 
 #: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:8
 msgid "Widget-like Calculator and Conversion tool"
-msgstr "Widget-ähnlicher Taschenrechner und Umrechner"
+msgstr "Widget-ähnlicher Taschenrechner und Einheitenumrechner"
 
 #: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:10
 msgid ""
@@ -40,10 +44,10 @@ msgid ""
 msgstr ""
 "Cuneo ist eine unkomplizierte Applikation, mit der du alles Mögliche "
 "berechnen und umrechnen kannst. Durch die Gestaltung, welche an ein Widget "
-"erinnert, ist Cuneo kompakt und kann schwebend über einem maximierten Fenster "
-"genutzt werden, damit du dich ganz auf deine Aufgaben konzentrieren kannst "
-"und dich nicht mit einem Taschenrechnerprogramm zufrieden geben musst, "
-"welches deinen halben Bildschirm verdeckt."
+"erinnert, ist Cuneo kompakt und kann schwebend über einem maximierten "
+"Fenster genutzt werden, damit du dich ganz auf deine Aufgaben konzentrieren "
+"kannst und dich nicht mit einem Taschenrechnerprogramm zufrieden geben "
+"musst, welches deinen halben Bildschirm verdeckt."
 
 #: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:11
 msgid ""
@@ -57,13 +61,13 @@ msgid ""
 "pocket which you get out when you need to crunch some numbers or conversions."
 msgstr ""
 "Der Name Cuneo ist inspiriert von der antiken Keilschrift, welche auf "
-"Englisch Cuneiform genannt wird. Dies ist das älteste bekannte Schreibsystem, "
-"welches unter anderem von den Sumerern genutzt wurde, um auf Tontafeln "
-"Steuern, Inventar, Berechnungen und viele andere Dinge aus dem alltäglichen "
-"Leben festzuhalten. Genau dafür wurde Cuneo gemacht. Cuneo ist dazu gedacht "
-"genutzt zu werden, wenn mal schnell etwas berechnet oder umgerechnet werden "
-"muss. Gestaltet wie ein Taschenmesser, welches du dann rausholst, wenn ein "
-"paar Aufgaben mit Zahlen und Einheiten anstehen."
+"Englisch Cuneiform genannt wird. Dies ist das älteste bekannte "
+"Schreibsystem, welches unter anderem von den Sumerern genutzt wurde, um auf "
+"Tontafeln Steuern, Inventar, Berechnungen und viele andere Dinge aus dem "
+"alltäglichen Leben festzuhalten. Genau dafür wurde Cuneo gemacht. Cuneo ist "
+"dazu gedacht genutzt zu werden, wenn mal schnell etwas berechnet oder "
+"umgerechnet werden muss. Gestaltet wie ein Taschenmesser, welches du dann "
+"rausholst, wenn ein paar Aufgaben mit Zahlen und Einheiten anstehen."
 
 #: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:12
 msgid ""
@@ -75,14 +79,14 @@ msgid ""
 "handle theres an operator menu right at your disposal. Power users can also "
 "just type the operators like \"sqrt()\" for square root."
 msgstr ""
-"Cuneo hat zwei unterschiedliche Modi: Einen normaler Taschenrechner und einen "
-"Umrechner. Damit du fokussiert bleibst und keinen Platz auf deinem "
+"Cuneo hat zwei unterschiedliche Modi: Einen normaler Taschenrechner und "
+"einen Umrechner. Damit du fokussiert bleibst und keinen Platz auf deinem "
 "Bildschirm verschwendest, kommt Cuneo ohne die üblichen skeuomorphen Knöpfe "
 "aus. Benutze einfach deine Tastatur, die ja sowieso an deinem Computer dran "
-"ist. Wenn es mal etwas komplizierter wird, als dir mit der Tastatur lieb ist, "
-"kannst du einfach das Operatormenü rechts benutzen. Poweruser können diese "
-"Operatoren, wie \"sqrt()\" für Quadratwurzel, aber auch einfach mit der "
-"Tastatur tippen."
+"ist. Wenn es mal etwas komplizierter wird, als dir mit der Tastatur lieb "
+"ist, kannst du einfach das Operatormenü rechts benutzen. Poweruser können "
+"diese Operatoren, wie \"sqrt()\" für Quadratwurzel, aber auch einfach mit "
+"der Tastatur tippen."
 
 #: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:13
 msgid ""
@@ -125,15 +129,11 @@ msgid "Conversion Mode (light)"
 msgstr "Umrechnungsmodus (Light Mode)"
 
 #: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:53
-msgid "Conversion Mode being used with a code editor (dark)"
+msgid "Conversion Mode (dark)"
 msgstr "Umrechnungsmodus (Dark Mode)"
 
-#: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:57
-msgid "Conversion Mode being used to convert miles to kilometers (light)"
-msgstr "Benutzung des Umrechnungsmodus um Meilen in Kilometer umzurechnen (Light Mode)"
-
 #. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
-#: src/main.py:91
+#: src/main.py:94
 msgid "translator-credits"
 msgstr "Jan-Niklas Kuhn"
 
@@ -249,11 +249,11 @@ msgstr "Berechnen"
 msgid "Copy to clipboard"
 msgstr "In die Zwischenablage kopieren"
 
-#: src/conversion-page.ui:47
+#: src/conversion-page.ui:48
 msgid "Convert"
 msgstr "Umrechnen"
 
-#: src/conversion-page.ui:97
+#: src/conversion-page.ui:98
 msgid "Result"
 msgstr "Ergebnis"
 
@@ -1593,47 +1593,47 @@ msgstr "Angloamerikanisch"
 msgid "Nautical"
 msgstr "Nautisch"
 
-#: src/conversion_units.py:227
+#: src/conversion_units.py:226
 msgid "Length"
 msgstr "Länge"
 
-#: src/conversion_units.py:228
+#: src/conversion_units.py:227
 msgid "Speed"
 msgstr "Geschwindigkeit"
 
-#: src/conversion_units.py:229
+#: src/conversion_units.py:228
 msgid "Temperature"
 msgstr "Temperatur"
 
-#: src/conversion_units.py:230
+#: src/conversion_units.py:229
 msgid "Area"
 msgstr "Fläche"
 
-#: src/conversion_units.py:231
+#: src/conversion_units.py:230
 msgid "Time"
 msgstr "Zeit"
 
-#: src/conversion_units.py:232
+#: src/conversion_units.py:231
 msgid "Mass"
 msgstr "Masse"
 
-#: src/conversion_units.py:233
+#: src/conversion_units.py:232
 msgid "Volume"
 msgstr "Volumen"
 
-#: src/conversion_units.py:234
+#: src/conversion_units.py:233
 msgid "Data"
-msgstr "Daten"
+msgstr "Datenmengen"
 
-#: src/conversion_units.py:235
+#: src/conversion_units.py:234
 msgid "Pressure"
 msgstr "Druck"
 
-#: src/conversion_units.py:236
+#: src/conversion_units.py:235
 msgid "Energy"
 msgstr "Energie"
 
-#: src/conversion_units.py:237
+#: src/conversion_units.py:236
 msgid "Frequency"
 msgstr "Frequenz"
 
@@ -1647,6 +1647,14 @@ msgstr "Berechnungen"
 #: src/history_window.py:254
 msgid "Conversion History"
 msgstr "Umrechnungen"
+
+#~ msgid "Conversion Mode being used with a code editor (dark)"
+#~ msgstr "Umrechnungsmodus (Dark Mode)"
+
+#~ msgid "Conversion Mode being used to convert miles to kilometers (light)"
+#~ msgstr ""
+#~ "Benutzung des Umrechnungsmodus um Meilen in Kilometer umzurechnen (Light "
+#~ "Mode)"
 
 #~ msgid "A caption"
 #~ msgstr "x"

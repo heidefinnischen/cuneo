@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cuneo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-07 13:44+0200\n"
+"POT-Creation-Date: 2026-09-20 14:40-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,8 +22,12 @@ msgstr ""
 msgid "Cuneo"
 msgstr ""
 
-#: data/io.github.heidefinnischen.cuneo.desktop.in:8
-msgid "Utility;Calculator;Conversion;Convert;Calculate;Converter;Calculation;"
+#: data/io.github.heidefinnischen.cuneo.desktop.in:5
+msgid "Calculator and Conversion tool"
+msgstr ""
+
+#: data/io.github.heidefinnischen.cuneo.desktop.in:9
+msgid "Utility;Calculator;Conversion;Convert;Calculate;Converter;Calculation;Math;"
 msgstr ""
 
 #: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:8
@@ -97,15 +101,11 @@ msgid "Conversion Mode (light)"
 msgstr ""
 
 #: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:53
-msgid "Conversion Mode being used with a code editor (dark)"
-msgstr ""
-
-#: data/io.github.heidefinnischen.cuneo.metainfo.xml.in:57
-msgid "Conversion Mode being used to convert miles to kilometers (light)"
+msgid "Conversion Mode (dark)"
 msgstr ""
 
 #. Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
-#: src/main.py:91
+#: src/main.py:94
 msgid "translator-credits"
 msgstr ""
 
@@ -221,11 +221,11 @@ msgstr ""
 msgid "Copy to clipboard"
 msgstr ""
 
-#: src/conversion-page.ui:47
+#: src/conversion-page.ui:48
 msgid "Convert"
 msgstr ""
 
-#: src/conversion-page.ui:97
+#: src/conversion-page.ui:98
 msgid "Result"
 msgstr ""
 
@@ -1565,47 +1565,47 @@ msgstr ""
 msgid "Nautical"
 msgstr ""
 
-#: src/conversion_units.py:227
+#: src/conversion_units.py:226
 msgid "Length"
 msgstr ""
 
-#: src/conversion_units.py:228
+#: src/conversion_units.py:227
 msgid "Speed"
 msgstr ""
 
-#: src/conversion_units.py:229
+#: src/conversion_units.py:228
 msgid "Temperature"
 msgstr ""
 
-#: src/conversion_units.py:230
+#: src/conversion_units.py:229
 msgid "Area"
 msgstr ""
 
-#: src/conversion_units.py:231
+#: src/conversion_units.py:230
 msgid "Time"
 msgstr ""
 
-#: src/conversion_units.py:232
+#: src/conversion_units.py:231
 msgid "Mass"
 msgstr ""
 
-#: src/conversion_units.py:233
+#: src/conversion_units.py:232
 msgid "Volume"
 msgstr ""
 
-#: src/conversion_units.py:234
+#: src/conversion_units.py:233
 msgid "Data"
 msgstr ""
 
-#: src/conversion_units.py:235
+#: src/conversion_units.py:234
 msgid "Pressure"
 msgstr ""
 
-#: src/conversion_units.py:236
+#: src/conversion_units.py:235
 msgid "Energy"
 msgstr ""
 
-#: src/conversion_units.py:237
+#: src/conversion_units.py:236
 msgid "Frequency"
 msgstr ""
 
