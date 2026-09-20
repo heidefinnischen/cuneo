@@ -49,16 +49,38 @@
       <caption>Conversion Mode (light)</caption>
     </screenshot>
     <screenshot>
-      <image>https://raw.githubusercontent.com/heidefinnischen/cuneo/09695c6c0f6dfe98af52f5cf16c82e469ed869d2/data/Resources/convert-code-dark.png</image>
-      <caption>Conversion Mode being used with a code editor (dark)</caption>
-    </screenshot>
-    <screenshot>
-      <image>https://raw.githubusercontent.com/heidefinnischen/cuneo/09695c6c0f6dfe98af52f5cf16c82e469ed869d2/data/Resources/convert-maps-light.png</image>
-      <caption>Conversion Mode being used to convert miles to kilometers (light)</caption>
+      <image>https://raw.githubusercontent.com/heidefinnischen/cuneo/09695c6c0f6dfe98af52f5cf16c82e469ed869d2/data/Resources/convert-sample-2-dark.png</image>
+      <caption>Conversion Mode (dark)</caption>
     </screenshot>
   </screenshots>
 
   <releases>
+    <release version="1.1" date="2026-09-20">
+      <description translate="no">
+        <p>This release brings maintenance updates to Cuneo like the newest GNOME SDK, important fixes to the calculation logic making interpretations consistent with reference calculators, new translations for Dutch and Russian and smaller visual updates. You can also now start Cuneo directly into conversion mode.</p>
+        <p>General</p>
+        <ul>
+          <li>Updated GNOME Platform SDK to version 51</li>
+          <li>New "--convert" launch flag to directly start into conversion mode</li>
+        </ul>
+        <p>Calculation</p>
+        <ul>
+          <li>Fixes to percentage calculations</li>
+          <li>Added implicit multiplication support</li>
+          <li>Added unary minus operator</li>
+          <li>Removed trailing parentheses from expression view</li>
+        </ul>
+        <p>Conversion</p>
+        <ul>
+          <li>Fix for long conversion entries being covered by unit selection</li>
+        </ul>
+        <p>New translations</p>
+        <ul>
+          <li>Dutch</li>
+          <li>Russian</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.0" date="2025-06-07">
       <description translate="no">
         <p>Release description</p>

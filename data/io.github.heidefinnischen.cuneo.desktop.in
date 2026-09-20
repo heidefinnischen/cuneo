@@ -2,10 +2,11 @@
 Name=Cuneo
 Exec=cuneo
 Icon=io.github.heidefinnischen.cuneo
+GenericName=Widget-like Calculator and Conversion tool
 GenericName[ru]=Конвертер единиц измерения и калькулятор
 Terminal=false
 Type=Application
 Categories=Utility;
-Keywords=Utility;Calculator;Conversion;Convert;Calculate;Converter;Calculation;
+Keywords=Utility;Calculator;Conversion;Convert;Calculate;Converter;Calculation;Math;
 StartupNotify=true
 DBusActivatable=true
